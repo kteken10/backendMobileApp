@@ -77,7 +77,7 @@ def logout():
 
 @app.route('/')
 def index():
-    return "Hello World!"
+    return "Je suis une Application Flask deployer sur Heroku par Kteken"
 
 # Routes pour les visiteurs
 @app.route('/visiteurs', methods=['GET'])
