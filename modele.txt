@@ -1,0 +1,30 @@
+Table Visiteur {
+  id                   int           [pk, increment]
+  nom                  varchar       [not null]
+  email                varchar       [not null]
+  numero_telephone     varchar       [not null]
+  photo_profil         varchar
+  date_enregistrement   datetime      [not null]
+}
+
+Table Fournisseur {
+  id                   int           [pk, increment]
+  nom_fournisseur      varchar       [not null]
+  email                varchar       [not null]
+  numero_telephone     varchar       [not null]
+  logo_fournisseur     varchar
+  date_enregistrement   datetime      [not null]
+  localisation         varchar       [not null]
+  adresse              varchar       [not null]
+}
+
+Table Automobile {
+  id                   int           [pk, increment]
+  marque               varchar       [not null]
+  prix                 decimal       [not null]
+  type_vehicule        varchar       [not null]
+  couleur              varchar       [not null]
+  date_enregistrement   datetime      [not null]
+  fournisseur_id       int           [ref: > Fournisseur.id]
+}
+

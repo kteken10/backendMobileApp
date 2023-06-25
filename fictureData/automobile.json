@@ -1,0 +1,131 @@
+[
+    {
+      "marque": "Toyota",
+      "prix": 25000,
+      "type_vehicule": "voiture",
+      "couleur": "rouge",
+      "fournisseur_id": 2,
+      "image": "https://www.shutterstock.com/fr/image-illustration/zczecinpolanddecember-2020bugatti-la-voiture-noire-on-1888381567"
+    },
+    {
+      "marque": "Honda",
+      "prix": 18000,
+      "type_vehicule": "voiture",
+      "couleur": "bleu",
+      "fournisseur_id": 2,
+      "image": "https://www.shutterstock.com/fr/image-illustration/szczecinpolandnovember-2020bugatti-bolide-on-track3d-illustration-1864464208"
+    },
+    {
+      "marque": "BMW",
+      "prix": 35000,
+      "type_vehicule": "voiture",
+      "couleur": "noir",
+      "fournisseur_id": 3,
+      "image": "https://www.shutterstock.com/fr/image-photo/paris-oct-3-2018-new-2020-1256171356"
+    },
+    {
+      "marque": "Yamaha",
+      "prix": 8000,
+      "type_vehicule": "moto",
+      "couleur": "blanc",
+      "fournisseur_id": 4,
+      "image": "https://www.shutterstock.com/fr/image-photo/miami-year-2016-front-view-red-1734503306"
+    },
+    {
+      "marque": "Harley-Davidson",
+      "prix": 20000,
+      "type_vehicule": "moto",
+      "couleur": "noir",
+      "fournisseur_id": 5,
+      "image": "https://www.shutterstock.com/fr/image-photo/miami-year-2016-front-view-red-1734503306"
+    },
+    {
+      "marque": "Peugeot",
+      "prix": 12000,
+      "type_vehicule": "voiture",
+      "couleur": "gris",
+      "fournisseur_id": 1,
+      "image": "https://www.shutterstock.com/fr/image-vector/frankfurt-germany-september-12-2017-bugatti-1562926585"
+    },
+    {
+      "marque": "Kawasaki",
+      "prix": 9000,
+      "type_vehicule": "moto",
+      "couleur": "vert",
+      "fournisseur_id": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6iF_7Nq4qdt2CJcQx1gW8WgpJuURfDUgRRQ&usqp=CAU"
+    },
+    {
+      "marque": "Audi",
+      "prix": 40000,
+      "type_vehicule": "voiture",
+      "couleur": "bleu",
+      "fournisseur_id": 3,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwY4-lktg6Qq1QhHTz3x4zEDr5Y_7rMIFjdw&usqp=CAU"
+    },
+    {
+      "marque": "Suzuki",
+      "prix": 7000,
+      "type_vehicule": "moto",
+      "couleur": "rouge",
+      "fournisseur_id": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1xXJ0nxPyvnsnPVAQ4LrzQpNIlFB0eyQ5Gg&usqp=CAU"
+    },
+    {
+      "marque": "Renault",
+      "prix": 15000,
+      "type_vehicule": "voiture",
+      "couleur": "noir",
+      "fournisseur_id": 1,
+      "image": "https://example.com/car6.jpg"
+    },
+    {
+      "marque": "Triumph",
+      "prix": 18000,
+      "type_vehicule": "moto",
+      "couleur": "bleu",
+      "fournisseur_id": 5,
+      "image": "https://example.com/moto5.jpg"
+    },
+    {
+      "marque": "Mercedes-Benz",
+      "prix": 50000,
+      "type_vehicule": "voiture",
+      "couleur": "argent",
+      "fournisseur_id": 3,
+      "image": "https://example.com/car7.jpg"
+    },
+    {
+      "marque": "Ducati",
+      "prix": 15000,
+      "type_vehicule": "moto",
+      "couleur": "rouge",
+      "fournisseur_id": 5,
+      "image": "https://example.com/moto6.jpg"
+    },
+    {
+      "marque": "Volkswagen",
+      "prix": 22000,
+      "type_vehicule": "voiture",
+      "couleur": "blanc",
+      "fournisseur_id": 1,
+      "image": "https://example.com/car8.jpg"
+    },
+    {
+      "marque": "KTM",
+      "prix": 10000,
+      "type_vehicule": "moto",
+      "couleur": "orange",
+      "fournisseur_id": 4,
+      "image": "https://example.com/moto7.jpg"
+    },
+    {
+      "marque": "Ford",
+      "prix": 28000,
+      "type_vehicule": "voiture",
+      "couleur": "rouge",
+      "fournisseur_id": 2,
+      "image": "https://example.com/car9.jpg"
+    }
+  ]
+  
