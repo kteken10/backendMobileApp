@@ -29,51 +29,51 @@ if ENV_FILE:
     load_dotenv(ENV_FILE)
 
 ## GESTION DE L'AUTHENTICATION
-oauth = OAuth(app)
+# oauth = OAuth(app)
 
-oauth.register(
-    "auth0",
-    client_id=env.get("AUTH0_CLIENT_ID"),
-    client_secret=env.get("AUTH0_CLIENT_SECRET"),
-    client_kwargs={
-        "scope": "openid profile email",
-    },
-    server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
-)
+# oauth.register(
+#     "auth0",
+#     client_id=env.get("AUTH0_CLIENT_ID"),
+#     client_secret=env.get("AUTH0_CLIENT_SECRET"),
+#     client_kwargs={
+#         "scope": "openid profile email",
+#     },
+#     server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
+# )
 
-@app.route("/login")
-def login():
-    return oauth.auth0.authorize_redirect(
-        redirect_uri=url_for("get_user_info", _external=True)  # Remplacez par votre URL de redirection
-    )
+# @app.route("/login")
+# def login():
+#     return oauth.auth0.authorize_redirect(
+#         redirect_uri=url_for("get_user_info", _external=True)  # Remplacez par votre URL de redirection
+#     )
 
-@app.route("/users")
-def get_user_info():
-    # Vérifier si l'authentification a réussi
-    token = oauth.auth0.authorize_access_token()
-    if token:
-        # Authentification réussie
-        userinfo = oauth.auth0.parse_id_token(token, nonce=request.args.get('nonce'))
-        # Vous pouvez accéder aux informations de l'utilisateur à partir de userinfo, par exemple :
-        return jsonify({'message': 'Authentification réussie', 'userinfo': userinfo})
-    else:
-        # Authentification échouée
-        return jsonify({'message': 'Échec de l\'authentification'})
+# @app.route("/users")
+# def get_user_info():
+#     # Vérifier si l'authentification a réussi
+#     token = oauth.auth0.authorize_access_token()
+#     if token:
+#         # Authentification réussie
+#         userinfo = oauth.auth0.parse_id_token(token, nonce=request.args.get('nonce'))
+#         # Vous pouvez accéder aux informations de l'utilisateur à partir de userinfo, par exemple :
+#         return jsonify({'message': 'Authentification réussie', 'userinfo': userinfo})
+#     else:
+#         # Authentification échouée
+#         return jsonify({'message': 'Échec de l\'authentification'})
 
-@app.route("/logout")
-def logout():
-    session.clear()
-    return redirect(
-        "https://" + env.get("AUTH0_DOMAIN")
-        + "/v2/logout?"
-        + urlencode(
-            {
-                "returnTo": "http://localhost:5000",  # Remplacez par votre URL de redirection après la déconnexion
-                "client_id": env.get("AUTH0_CLIENT_ID"),
-            },
-            quote_via=quote_plus,
-        )
-    )
+# @app.route("/logout")
+# def logout():
+#     session.clear()
+#     return redirect(
+#         "https://" + env.get("AUTH0_DOMAIN")
+#         + "/v2/logout?"
+#         + urlencode(
+#             {
+#                 "returnTo": "http://localhost:5000",  # Remplacez par votre URL de redirection après la déconnexion
+#                 "client_id": env.get("AUTH0_CLIENT_ID"),
+#             },
+#             quote_via=quote_plus,
+#         )
+#     )
 
 @app.route('/')
 def index():
