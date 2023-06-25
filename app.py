@@ -1,6 +1,6 @@
 import os
 import jwt
-from jwt import encode as jwt_encode
+from jwt import encode as jwt_encode, decode as jwt_decode
 from os import environ as env
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, session, jsonify, url_for, request
@@ -13,6 +13,10 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 env_type = 'development'
+ENV_FILE = find_dotenv()
+if ENV_FILE:
+    load_dotenv(ENV_FILE)
+
 secret_key = env.get("SECRET_KEY")
 app.secret_key = secret_key
 app.config.from_object(config[env_type])
@@ -24,9 +28,6 @@ with app.app_context():
 
 CORS(app)  # Pour autoriser les requêtes CORS
 
-ENV_FILE = find_dotenv()
-if ENV_FILE:
-    load_dotenv(ENV_FILE)
 
 @app.route('/')
 def index():
@@ -39,7 +40,7 @@ def get_visiteurs():
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+        decoded_token = jwt_decode(token, secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
 
         visiteurs = Visiteur.query.all()
@@ -68,7 +69,7 @@ def get_visiteur(visiteur_id):
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+        decoded_token = jwt.jwt_decode(token, secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
 
         visiteur = Visiteur.query.get(visiteur_id)
@@ -155,7 +156,7 @@ def get_fournisseur(fournisseur_id):
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+        decoded_token = jwt_decode(token, secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
 
         fournisseur = Fournisseur.query.get(fournisseur_id)
