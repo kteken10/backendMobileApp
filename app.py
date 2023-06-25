@@ -1,8 +1,7 @@
 import os
 import jwt
+from jwt import encode as jwt_encode
 from os import environ as env
-from urllib.parse import quote_plus, urlencode
-from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, session, jsonify, url_for, request
 
@@ -14,11 +13,10 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 env_type = 'development'
-secret_key = os.urandom(24).hex()
+secret_key = env.get("SECRET_KEY")
 app.secret_key = secret_key
 app.config.from_object(config[env_type])
 db.init_app(app)
-# migrate = Migrate(app, db)
 
 # Création des tables
 with app.app_context():
@@ -30,117 +28,154 @@ ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
 
-## GESTION DE L'AUTHENTICATION
-# oauth = OAuth(app)
-
-# oauth.register(
-#     "auth0",
-#     client_id=env.get("AUTH0_CLIENT_ID"),
-#     client_secret=env.get("AUTH0_CLIENT_SECRET"),
-#     client_kwargs={
-#         "scope": "openid profile email",
-#     },
-#     server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
-# )
-
-# @app.route("/login")
-# def login():
-#     return oauth.auth0.authorize_redirect(
-#         redirect_uri=url_for("get_user_info", _external=True)  # Remplacez par votre URL de redirection
-#     )
-
-# @app.route("/users")
-# def get_user_info():
-#     # Vérifier si l'authentification a réussi
-#     token = oauth.auth0.authorize_access_token()
-#     if token:
-#         # Authentification réussie
-#         userinfo = oauth.auth0.parse_id_token(token, nonce=request.args.get('nonce'))
-#         # Vous pouvez accéder aux informations de l'utilisateur à partir de userinfo, par exemple :
-#         return jsonify({'message': 'Authentification réussie', 'userinfo': userinfo})
-#     else:
-#         # Authentification échouée
-#         return jsonify({'message': 'Échec de l\'authentification'})
-
-# @app.route("/logout")
-# def logout():
-#     session.clear()
-#     return redirect(
-#         "https://" + env.get("AUTH0_DOMAIN")
-#         + "/v2/logout?"
-#         + urlencode(
-#             {
-#                 "returnTo": "http://localhost:5000",  # Remplacez par votre URL de redirection après la déconnexion
-#                 "client_id": env.get("AUTH0_CLIENT_ID"),
-#             },
-#             quote_via=quote_plus,
-#         )
-#     )
-
 @app.route('/')
 def index():
     return "Je suis une Application Flask deployer sur Heroku par Kteken"
-
 # Routes pour les visiteurs
 @app.route('/visiteurs', methods=['GET'])
 def get_visiteurs():
-    visiteurs = Visiteur.query.all()
-    result = [
-        {
-            'id': visiteur.id,
-            'nom': visiteur.nom,
-            'email': visiteur.email,
-            'numero_telephone': visiteur.numero_telephone,
-            'photo_profil': visiteur.photo_profil,
-            'date_enregistrement': visiteur.date_enregistrement.isoformat()
-        }
-        for visiteur in visiteurs
-    ]
-    return jsonify(result)
+    token = request.headers.get('Authorization')
+    if not token:
+        return jsonify({'message': 'Token missing'}), 401
+
+    try:
+        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+        user_id = decoded_token['user_id']
+
+        visiteurs = Visiteur.query.all()
+        result = [
+            {
+                'id': visiteur.id,
+                'nom': visiteur.nom,
+                'email': visiteur.email,
+                'numero_telephone': visiteur.numero_telephone,
+                'photo_profil': visiteur.photo_profil,
+                'password': visiteur.password,
+                'date_enregistrement': visiteur.date_enregistrement.isoformat()
+            }
+            for visiteur in visiteurs
+        ]
+        return jsonify(result)
+
+    except jwt.InvalidTokenError:
+        return jsonify({'message': 'Invalid token'}), 401
+
 
 @app.route('/visiteurs/<int:visiteur_id>', methods=['GET'])
 def get_visiteur(visiteur_id):
-    visiteur = Visiteur.query.get(visiteur_id)
-    if visiteur:
-        result = {
-            'id': visiteur.id,
-            'nom': visiteur.nom,
-            'email': visiteur.email,
-            'numero_telephone': visiteur.numero_telephone,
-            'photo_profil': visiteur.photo_profil,
-            'date_enregistrement': visiteur.date_enregistrement.isoformat()
-        }
-        return jsonify(result)
-    else:
-        return jsonify({'message': 'Visiteur non trouvé'})
+    token = request.headers.get('Authorization')
+    if not token:
+        return jsonify({'message': 'Token missing'}), 401
+
+    try:
+        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+        user_id = decoded_token['user_id']
+
+        visiteur = Visiteur.query.get(visiteur_id)
+        if visiteur:
+            result = {
+                'id': visiteur.id,
+                'nom': visiteur.nom,
+                'email': visiteur.email,
+                'numero_telephone': visiteur.numero_telephone,
+                'photo_profil': visiteur.photo_profil,
+                'password': visiteur.password,
+                'date_enregistrement': visiteur.date_enregistrement.isoformat()
+            }
+            return jsonify(result)
+        else:
+            return jsonify({'message': 'Visiteur non trouvé'})
+
+    except jwt.InvalidTokenError:
+        return jsonify({'message': 'Invalid token'}), 401
 
 
-    
-def generate_token(user_id):
-    # Define the payload of the token (e.g., user ID, expiration time, etc.)
-    payload = {
-        'user_id': user_id,
-        'exp': datetime.utcnow() + timedelta(days=1)  # Expiration time of the token
-    }
-
-    # Generate the token with a secret key
-    token = jwt.encode(payload, 'your_secret_key', algorithm='HS256')
-
-    return token.decode('utf-8')
-@app.route('/auth/visiteur', methods=['POST'])
-def authenticate_visiteur():
+# Routes pour les visiteurs et fournisseurs
+@app.route('/auth', methods=['POST'])
+def authenticate_user():
     data = request.get_json()
     email = data['email']
     password = data['password']
 
     visiteur = Visiteur.query.filter_by(email=email).first()
-    if visiteur:
-        if visiteur.password == password:
-            token = generate_token(visiteur.id)
-            return jsonify({'token': token})
+    fournisseur = Fournisseur.query.filter_by(email=email).first()
 
-    return jsonify({'message': 'Invalid credentials'})
+    if visiteur and visiteur.password == password:
+        token = generate_token(visiteur.id)
+        return jsonify({'user_type': 'visiteur', 'token': token})
 
+    elif fournisseur and fournisseur.password == password:
+        token = generate_token(fournisseur.id)
+        return jsonify({'user_type': 'fournisseur', 'token': token})
+
+    return jsonify({'message': 'Invalid credentials'}), 401
+
+
+def generate_token(user_id):
+    payload = {
+        'user_id': user_id,
+        'exp': datetime.utcnow() + timedelta(days=1)
+    }
+    token = jwt_encode(payload, secret_key, algorithm='HS256')
+    return token
+
+
+# Routes pour les fournisseurs
+@app.route('/fournisseurs', methods=['GET'])
+def get_fournisseurs():
+    token = request.headers.get('Authorization')
+    if not token:
+        return jsonify({'message': 'Token missing'}), 401
+
+    try:
+        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+        user_id = decoded_token['user_id']
+
+        fournisseurs = Fournisseur.query.all()
+        result = [
+            {
+                'id': fournisseur.id,
+                'nom': fournisseur.nom,
+                'email': fournisseur.email,
+                'numero_telephone': fournisseur.numero_telephone,
+                'photo_profil': fournisseur.photo_profil,
+                'password': fournisseur.password,
+                'date_enregistrement': fournisseur.date_enregistrement.isoformat()
+            }
+            for fournisseur in fournisseurs
+        ]
+        return jsonify(result)
+
+    except jwt.InvalidTokenError:
+        return jsonify({'message': 'Invalid token'}), 401
+@app.route('/fournisseurs/<int:fournisseur_id>', methods=['GET'])
+def get_fournisseur(fournisseur_id):
+    token = request.headers.get('Authorization')
+    if not token:
+        return jsonify({'message': 'Token missing'}), 401
+
+    try:
+        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+        user_id = decoded_token['user_id']
+
+        fournisseur = Fournisseur.query.get(fournisseur_id)
+        if fournisseur:
+            result = {
+                'id': fournisseur.id,
+                'nom': fournisseur.nom,
+                'email': fournisseur.email,
+                'numero_telephone': fournisseur.numero_telephone,
+                'photo_profil': fournisseur.photo_profil,
+                'password': fournisseur.password,
+                'date_enregistrement': fournisseur.date_enregistrement.isoformat()
+            }
+            return jsonify(result)
+        else:
+            return jsonify({'message': 'Fournisseur non trouvé'})
+
+    except jwt.InvalidTokenError as e:
+             print('Invalid token:', str(e))
+    return jsonify({'message': 'Invalid token'}), 401
 @app.route('/visiteurs', methods=['POST'])
 def create_visiteur():
     data = request.get_json()
@@ -164,55 +199,9 @@ def delete_all_visiteurs():
     
     return jsonify({'message': 'Tous les visiteurs ont été supprimés avec succès'})
 
-# Routes pour les fournisseurs
-@app.route('/fournisseurs', methods=['GET'])
-def get_fournisseurs():
-    fournisseurs = Fournisseur.query.all()
-    result = [
-        {
-            'id': fournisseur.id,
-            'nom_fournisseur': fournisseur.nom_fournisseur,
-            'email': fournisseur.email,
-            'numero_telephone': fournisseur.numero_telephone,
-            'logo_fournisseur': fournisseur.logo_fournisseur,
-            'date_enregistrement': fournisseur.date_enregistrement.isoformat(),
-            'localisation': fournisseur.localisation,
-            'adresse': fournisseur.adresse
-        }
-        for fournisseur in fournisseurs
-    ]
-    return jsonify(result)
 
-@app.route('/fournisseurs/<int:fournisseur_id>', methods=['GET'])
-def get_fournisseur(fournisseur_id):
-    fournisseur = Fournisseur.query.get(fournisseur_id)
-    if fournisseur:
-        result = {
-            'id': fournisseur.id,
-            'nom_fournisseur': fournisseur.nom_fournisseur,
-            'email': fournisseur.email,
-            'numero_telephone': fournisseur.numero_telephone,
-            'logo_fournisseur': fournisseur.logo_fournisseur,
-            'date_enregistrement': fournisseur.date_enregistrement.isoformat(),
-            'localisation': fournisseur.localisation,
-            'adresse': fournisseur.adresse
-        }
-        return jsonify(result)
-    else:
-        return jsonify({'message': 'Fournisseur non trouvé'})
-@app.route('/auth/fournisseur', methods=['POST'])
-def authenticate_fournisseur():
-    data = request.get_json()
-    email = data['email']
-    password = data['password']
 
-    fournisseur = Fournisseur.query.filter_by(email=email).first()
-    if fournisseur:
-        if fournisseur.password == password:
-            token = generate_token(fournisseur.id)
-            return jsonify({'token': token})
 
-    return jsonify({'message': 'Invalid credentials'})
 @app.route('/fournisseurs', methods=['POST'])
 def create_fournisseur():
     data = request.get_json()
