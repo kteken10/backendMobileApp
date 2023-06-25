@@ -183,10 +183,9 @@ def create_visiteur():
     visiteur = Visiteur(
         nom=data['nom'],
         email=data['email'],
-        date_enregistrement=datetime.utcnow(),
         numero_telephone=data['numero_telephone'],
-        photo_profil=data['photo_profil'],
-        password=data['password']
+        password=data['password'],
+        date_enregistrement=datetime.utcnow(),
     )
     db.session.add(visiteur)
     db.session.commit()
