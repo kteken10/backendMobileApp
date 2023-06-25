@@ -9,6 +9,7 @@ class Visiteur(db.Model):
     email = db.Column(db.String(255), nullable=False)
     numero_telephone = db.Column(db.String(255), nullable=False)
     photo_profil = db.Column(db.String(255))
+    password = db.Column(db.String(255), nullable=False)  # New field for password
     date_enregistrement = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 class Fournisseur(db.Model):
@@ -17,6 +18,7 @@ class Fournisseur(db.Model):
     email = db.Column(db.String(255), nullable=False)
     numero_telephone = db.Column(db.String(255), nullable=False)
     logo_fournisseur = db.Column(db.String(255))
+    password = db.Column(db.String(255), nullable=False)  # New field for password
     date_enregistrement = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     localisation = db.Column(db.String(255), nullable=False)
     adresse = db.Column(db.String(255), nullable=False)
