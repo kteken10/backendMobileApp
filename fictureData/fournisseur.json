@@ -5,6 +5,7 @@
     "email": "fournisseur2@example.com",
     "numero_telephone": "9876543210",
     "logo_fournisseur": "https://example.com/logo2.jpg",
+    "password":"kendis",
     "localisation": "Localisation 2",
     "adresse": "Adresse 2"
   },
@@ -13,6 +14,7 @@
     "email": "fournisseur3@example.com",
     "numero_telephone": "5551234567",
     "logo_fournisseur": "https://example.com/logo3.jpg",
+    "password":"kendis",
     "localisation": "Localisation 3",
     "adresse": "Adresse 3"
   },
@@ -21,6 +23,7 @@
     "email": "fournisseur4@example.com",
     "numero_telephone": "8889990000",
     "logo_fournisseur": "https://example.com/logo4.jpg",
+    "password":"kendis",
     "localisation": "Localisation 4",
     "adresse": "Adresse 4"
   },
@@ -29,6 +32,7 @@
     "email": "fournisseur5@example.com",
     "numero_telephone": "3334445555",
     "logo_fournisseur": "https://example.com/logo5.jpg",
+    "password":"kendis",
     "localisation": "Localisation 5",
     "adresse": "Adresse 5"
   },
@@ -37,6 +41,7 @@
     "email": "fournisseur6@example.com",
     "numero_telephone": "7778889999",
     "logo_fournisseur": "https://example.com/logo6.jpg",
+    "password":"kendis",
     "localisation": "Localisation 6",
     "adresse": "Adresse 6"
   },
@@ -45,6 +50,7 @@
     "email": "fournisseur7@example.com",
     "numero_telephone": "1112223333",
     "logo_fournisseur": "https://example.com/logo7.jpg",
+    "password":"kendis",
     "localisation": "Localisation 7",
     "adresse": "Adresse 7"
   },
@@ -53,6 +59,7 @@
     "email": "fournisseur8@example.com",
     "numero_telephone": "4445556666",
     "logo_fournisseur": "https://example.com/logo8.jpg",
+    "password":"kendis",
     "localisation": "Localisation 8",
     "adresse": "Adresse 8"
   },
@@ -61,6 +68,7 @@
     "email": "fournisseur9@example.com",
     "numero_telephone": "9990001111",
     "logo_fournisseur": "https://example.com/logo9.jpg",
+    "password":"kendis",
     "localisation": "Localisation 9",
     "adresse": "Adresse 9"
   }

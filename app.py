@@ -1,14 +1,16 @@
 import os
+import jwt
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, session, jsonify, url_for, request
+
 # from flask_migrate import Migrate
 from flask_cors import CORS
 from models import db, Visiteur, Fournisseur, Automobile
 from config import config
-from datetime import datetime
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 env_type = 'development'
@@ -112,19 +114,47 @@ def get_visiteur(visiteur_id):
     else:
         return jsonify({'message': 'Visiteur non trouvé'})
 
+
+    
+def generate_token(user_id):
+    # Define the payload of the token (e.g., user ID, expiration time, etc.)
+    payload = {
+        'user_id': user_id,
+        'exp': datetime.utcnow() + timedelta(days=1)  # Expiration time of the token
+    }
+
+    # Generate the token with a secret key
+    token = jwt.encode(payload, 'your_secret_key', algorithm='HS256')
+
+    return token.decode('utf-8')
+@app.route('/auth/visiteur', methods=['POST'])
+def authenticate_visiteur():
+    data = request.get_json()
+    email = data['email']
+    password = data['password']
+
+    visiteur = Visiteur.query.filter_by(email=email).first()
+    if visiteur:
+        if visiteur.password == password:
+            token = generate_token(visiteur.id)
+            return jsonify({'token': token})
+
+    return jsonify({'message': 'Invalid credentials'})
+
 @app.route('/visiteurs', methods=['POST'])
 def create_visiteur():
-    data = request.json
+    data = request.get_json()
     visiteur = Visiteur(
         nom=data['nom'],
         email=data['email'],
+        date_enregistrement=datetime.utcnow(),
         numero_telephone=data['numero_telephone'],
         photo_profil=data['photo_profil'],
-        date_enregistrement=datetime.utcnow()
+        password=data['password']
     )
     db.session.add(visiteur)
     db.session.commit()
-    return jsonify({'message': 'Visiteur créé avec succès'})
+    return jsonify({'message': 'Visiteur created successfully'})
 
 @app.route('/visiteurs', methods=['DELETE'])
 def delete_all_visiteurs():
@@ -170,22 +200,35 @@ def get_fournisseur(fournisseur_id):
         return jsonify(result)
     else:
         return jsonify({'message': 'Fournisseur non trouvé'})
+@app.route('/auth/fournisseur', methods=['POST'])
+def authenticate_fournisseur():
+    data = request.get_json()
+    email = data['email']
+    password = data['password']
 
+    fournisseur = Fournisseur.query.filter_by(email=email).first()
+    if fournisseur:
+        if fournisseur.password == password:
+            token = generate_token(fournisseur.id)
+            return jsonify({'token': token})
+
+    return jsonify({'message': 'Invalid credentials'})
 @app.route('/fournisseurs', methods=['POST'])
 def create_fournisseur():
-    data = request.json
+    data = request.get_json()
     fournisseur = Fournisseur(
         nom_fournisseur=data['nom_fournisseur'],
         email=data['email'],
         numero_telephone=data['numero_telephone'],
-        logo_fournisseur=data['logo_fournisseur'],
         date_enregistrement=datetime.utcnow(),
+        logo_fournisseur=data['logo_fournisseur'],
+        password=data['password'],
         localisation=data['localisation'],
         adresse=data['adresse']
     )
     db.session.add(fournisseur)
     db.session.commit()
-    return jsonify({'message': 'Fournisseur créé avec succès'})
+    return jsonify({'message': 'Fournisseur created successfully'})
 
 @app.route('/fournisseurs', methods=['DELETE'])
 def delete_all_fournisseurs():
