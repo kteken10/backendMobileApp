@@ -75,6 +75,10 @@ def logout():
         )
     )
 
+@app.route('/')
+def index():
+    return "Hello World!"
+
 # Routes pour les visiteurs
 @app.route('/visiteurs', methods=['GET'])
 def get_visiteurs():
