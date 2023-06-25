@@ -33,7 +33,7 @@ if ENV_FILE:
 # Définir une route pour la page d'accueil
 @app.route('/')
 def home():
-    return "Hello, Flask!"
+    return "Application testé"
 
 # Exécuter l'application Flask lorsque ce fichier est exécuté
 if __name__ == '__main__':
