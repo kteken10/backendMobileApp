@@ -4,7 +4,7 @@ from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, session, jsonify, url_for, request
-from flask_migrate import Migrate
+# from flask_migrate import Migrate
 from flask_cors import CORS
 from models import db, Visiteur, Fournisseur, Automobile
 from config import config
@@ -16,7 +16,7 @@ secret_key = os.urandom(24).hex()
 app.secret_key = secret_key
 app.config.from_object(config[env_type])
 db.init_app(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 # Création des tables
 with app.app_context():
@@ -303,5 +303,4 @@ def recherche():
     return jsonify(automobiles)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run()
