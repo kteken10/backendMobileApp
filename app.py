@@ -31,7 +31,7 @@ CORS(app)  # Pour autoriser les requêtes CORS
 
 @app.route('/')
 def index():
-    return "Je suis une Application Flask deployer sur Heroku par Kteken"
+    return "Je suis une Application Flask "
 # Routes pour les visiteurs
 @app.route('/visiteurs', methods=['GET'])
 def get_visiteurs():
