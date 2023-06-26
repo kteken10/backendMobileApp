@@ -240,7 +240,16 @@ def get_automobiles():
             'type_vehicule': automobile.type_vehicule,
             'couleur': automobile.couleur,
             'duree': get_duration(automobile.date_enregistrement),
-            'fournisseur_id': automobile.fournisseur_id,
+            'fournisseur_info': {
+                'id': automobile.fournisseur.id,
+                'nom_fournisseur': automobile.fournisseur.nom_fournisseur,
+                'email': automobile.fournisseur.email,
+                'numero_telephone': automobile.fournisseur.numero_telephone,
+                'logo_fournisseur': automobile.fournisseur.logo_fournisseur,
+                'date_enregistrement': automobile.fournisseur.date_enregistrement,
+                'localisation': automobile.fournisseur.localisation,
+                'adresse': automobile.fournisseur.adresse
+            },
             'image': automobile.image
         }
         for automobile in automobiles

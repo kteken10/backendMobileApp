@@ -18,7 +18,7 @@ class Fournisseur(db.Model):
     email = db.Column(db.String(255), nullable=False)
     numero_telephone = db.Column(db.String(255), nullable=False)
     logo_fournisseur = db.Column(db.String(255))
-    password = db.Column(db.String(255), nullable=False)  # New field for password
+    password = db.Column(db.String(255), nullable=False)  
     date_enregistrement = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     localisation = db.Column(db.String(255), nullable=False)
     adresse = db.Column(db.String(255), nullable=False)
@@ -31,6 +31,7 @@ class Automobile(db.Model):
     couleur = db.Column(db.String(255), nullable=False)
     date_enregistrement = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     fournisseur_id = db.Column(db.Integer, db.ForeignKey('fournisseur.id'))
+    description = db.Column(db.String(10000), nullable=False, default='')
     fournisseur = db.relationship('Fournisseur', backref=db.backref('automobiles', lazy=True))
     image = db.Column(db.String(255), nullable=False)
 

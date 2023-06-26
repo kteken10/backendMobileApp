@@ -7,7 +7,8 @@
       "logo_fournisseur": "logo1.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
       "localisation": "Localisation1",
-      "adresse": "Adresse1"
+      "adresse": "Adresse1",
+      "password":"Bendo"
   },
   {
       "id": 2,
@@ -17,7 +18,8 @@
       "logo_fournisseur": "logo2.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
       "localisation": "Localisation2",
-      "adresse": "Adresse2"
+      "adresse": "Adresse2",
+       "password":"Bendo"
   },
   {
       "id": 3,
@@ -27,7 +29,8 @@
       "logo_fournisseur": "logo3.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
       "localisation": "Localisation3",
-      "adresse": "Adresse3"
+      "adresse": "Adresse3",
+      "password":"Bendo"
   },
   {
       "id": 4,
@@ -37,7 +40,8 @@
       "logo_fournisseur": "logo4.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
       "localisation": "Localisation4",
-      "adresse": "Adresse4"
+      "adresse": "Adresse4",
+      "password":"Bendo"
   },
   {
       "id": 5,
@@ -47,156 +51,8 @@
       "logo_fournisseur": "logo5.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
       "localisation": "Localisation5",
-      "adresse": "Adresse5"
-  },
-  {
-      "id": 6,
-      "nom_fournisseur": "Fournisseur6",
-      "email": "fournisseur6@example.com",
-      "numero_telephone": "01234567896",
-      "logo_fournisseur": "logo6.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation6",
-      "adresse": "Adresse6"
-  },
-  {
-      "id": 7,
-      "nom_fournisseur": "Fournisseur7",
-      "email": "fournisseur7@example.com",
-      "numero_telephone": "01234567897",
-      "logo_fournisseur": "logo7.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation7",
-      "adresse": "Adresse7"
-  },
-  {
-      "id": 8,
-      "nom_fournisseur": "Fournisseur8",
-      "email": "fournisseur8@example.com",
-      "numero_telephone": "01234567898",
-      "logo_fournisseur": "logo8.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation8",
-      "adresse": "Adresse8"
-  },
-  {
-      "id": 9,
-      "nom_fournisseur": "Fournisseur9",
-      "email": "fournisseur9@example.com",
-      "numero_telephone": "01234567899",
-      "logo_fournisseur": "logo9.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation9",
-      "adresse": "Adresse9"
-  },
-  {
-      "id": 10,
-      "nom_fournisseur": "Fournisseur10",
-      "email": "fournisseur10@example.com",
-      "numero_telephone": "012345678910",
-      "logo_fournisseur": "logo10.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation10",
-      "adresse": "Adresse10"
-  },
-  {
-      "id": 11,
-      "nom_fournisseur": "Fournisseur11",
-      "email": "fournisseur11@example.com",
-      "numero_telephone": "012345678911",
-      "logo_fournisseur": "logo11.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation11",
-      "adresse": "Adresse11"
-  },
-  {
-      "id": 12,
-      "nom_fournisseur": "Fournisseur12",
-      "email": "fournisseur12@example.com",
-      "numero_telephone": "012345678912",
-      "logo_fournisseur": "logo12.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation12",
-      "adresse": "Adresse12"
-  },
-  {
-      "id": 13,
-      "nom_fournisseur": "Fournisseur13",
-      "email": "fournisseur13@example.com",
-      "numero_telephone": "012345678913",
-      "logo_fournisseur": "logo13.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation13",
-      "adresse": "Adresse13"
-  },
-  {
-      "id": 14,
-      "nom_fournisseur": "Fournisseur14",
-      "email": "fournisseur14@example.com",
-      "numero_telephone": "012345678914",
-      "logo_fournisseur": "logo14.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation14",
-      "adresse": "Adresse14"
-  },
-  {
-      "id": 15,
-      "nom_fournisseur": "Fournisseur15",
-      "email": "fournisseur15@example.com",
-      "numero_telephone": "012345678915",
-      "logo_fournisseur": "logo15.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation15",
-      "adresse": "Adresse15"
-  },
-  {
-      "id": 16,
-      "nom_fournisseur": "Fournisseur16",
-      "email": "fournisseur16@example.com",
-      "numero_telephone": "012345678916",
-      "logo_fournisseur": "logo16.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation16",
-      "adresse": "Adresse16"
-  },
-  {
-      "id": 17,
-      "nom_fournisseur": "Fournisseur17",
-      "email": "fournisseur17@example.com",
-      "numero_telephone": "012345678917",
-      "logo_fournisseur": "logo17.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation17",
-      "adresse": "Adresse17"
-  },
-  {
-      "id": 18,
-      "nom_fournisseur": "Fournisseur18",
-      "email": "fournisseur18@example.com",
-      "numero_telephone": "012345678918",
-      "logo_fournisseur": "logo18.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation18",
-      "adresse": "Adresse18"
-  },
-  {
-      "id": 19,
-      "nom_fournisseur": "Fournisseur19",
-      "email": "fournisseur19@example.com",
-      "numero_telephone": "012345678919",
-      "logo_fournisseur": "logo19.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation19",
-      "adresse": "Adresse19"
-  },
-  {
-      "id": 20,
-      "nom_fournisseur": "Fournisseur20",
-      "email": "fournisseur20@example.com",
-      "numero_telephone": "012345678920",
-      "logo_fournisseur": "logo20.jpg",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation20",
-      "adresse": "Adresse20"
+      "adresse": "Adresse5",
+      "password":"Bendo"
   }
+  
 ]
