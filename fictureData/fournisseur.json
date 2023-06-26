@@ -19,7 +19,7 @@
       "date_enregistrement": "2023-06-25T12:00:00",
       "localisation": "Localisation2",
       "adresse": "Adresse2",
-       "password":"Bendo"
+      "password":"Bendo"
   },
   {
       "id": 3,
@@ -36,7 +36,7 @@
       "id": 4,
       "nom_fournisseur": "Fournisseur4",
       "email": "fournisseur4@example.com",
-      "numero_telephone": "01234567894",
+      "numero_telephone": "0123456104",
       "logo_fournisseur": "logo4.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
       "localisation": "Localisation4",

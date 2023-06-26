@@ -32,7 +32,22 @@ CORS(app)  # Pour autoriser les requêtes CORS
 @app.route('/')
 def index():
     return "Je suis une Application Flask "
+
 # Routes pour les visiteurs
+@app.route('/visiteurs', methods=['POST'])
+def create_visiteur():
+    data = request.get_json()
+    visiteur = Visiteur(
+        nom=data['nom'],
+        email=data['email'],
+        numero_telephone=data['numero_telephone'],
+        password=data['password'],
+        date_enregistrement=datetime.utcnow(),
+    )
+    db.session.add(visiteur)
+    db.session.commit()
+    return jsonify({'message': 'Visiteur created successfully'})
+
 @app.route('/visiteurs', methods=['GET'])
 def get_visiteurs():
     token = request.headers.get('Authorization')
@@ -60,6 +75,7 @@ def get_visiteurs():
 
     except jwt.InvalidTokenError:
         return jsonify({'message': 'Invalid token'}), 401
+    
 
 
 @app.route('/visiteurs/<int:visiteur_id>', methods=['GET'])
@@ -90,8 +106,15 @@ def get_visiteur(visiteur_id):
     except jwt.InvalidTokenError:
         return jsonify({'message': 'Invalid token'}), 401
 
+@app.route('/visiteurs', methods=['DELETE'])
+def delete_all_visiteurs():
+    # Supprimer tous les enregistrements de visiteurs de la base de données
+    db.session.query(Visiteur).delete()
+    db.session.commit()
+    
+    return jsonify({'message': 'Tous les visiteurs ont été supprimés avec succès'})
 
-# Routes pour les visiteurs et fournisseurs
+# Routes pour l'authentification fournisseur et visiteur
 @app.route('/auth', methods=['POST'])
 def authenticate_user():
     data = request.get_json()
@@ -122,6 +145,24 @@ def generate_token(user_id):
 
 
 # Routes pour les fournisseurs
+
+@app.route('/fournisseurs', methods=['POST'])
+def create_fournisseur():
+    data = request.get_json()
+    fournisseur = Fournisseur(
+        nom_fournisseur=data['nom_fournisseur'],
+        email=data['email'],
+        numero_telephone=data['numero_telephone'],
+        date_enregistrement=datetime.utcnow(),
+        logo_fournisseur=data['logo_fournisseur'],
+        password=data['password'],
+        localisation=data['localisation'],
+        adresse=data['adresse']
+    )
+    db.session.add(fournisseur)
+    db.session.commit()
+    return jsonify({'message': 'Fournisseur created successfully'})
+
 @app.route('/fournisseurs', methods=['GET'])
 def get_fournisseurs():
     token = request.headers.get('Authorization')
@@ -177,47 +218,7 @@ def get_fournisseur(fournisseur_id):
     except jwt.InvalidTokenError as e:
              print('Invalid token:', str(e))
     return jsonify({'message': 'Invalid token'}), 401
-@app.route('/visiteurs', methods=['POST'])
-def create_visiteur():
-    data = request.get_json()
-    visiteur = Visiteur(
-        nom=data['nom'],
-        email=data['email'],
-        numero_telephone=data['numero_telephone'],
-        password=data['password'],
-        date_enregistrement=datetime.utcnow(),
-    )
-    db.session.add(visiteur)
-    db.session.commit()
-    return jsonify({'message': 'Visiteur created successfully'})
 
-@app.route('/visiteurs', methods=['DELETE'])
-def delete_all_visiteurs():
-    # Supprimer tous les enregistrements de visiteurs de la base de données
-    db.session.query(Visiteur).delete()
-    db.session.commit()
-    
-    return jsonify({'message': 'Tous les visiteurs ont été supprimés avec succès'})
-
-
-
-
-@app.route('/fournisseurs', methods=['POST'])
-def create_fournisseur():
-    data = request.get_json()
-    fournisseur = Fournisseur(
-        nom_fournisseur=data['nom_fournisseur'],
-        email=data['email'],
-        numero_telephone=data['numero_telephone'],
-        date_enregistrement=datetime.utcnow(),
-        logo_fournisseur=data['logo_fournisseur'],
-        password=data['password'],
-        localisation=data['localisation'],
-        adresse=data['adresse']
-    )
-    db.session.add(fournisseur)
-    db.session.commit()
-    return jsonify({'message': 'Fournisseur created successfully'})
 
 @app.route('/fournisseurs', methods=['DELETE'])
 def delete_all_fournisseurs():
@@ -228,6 +229,31 @@ def delete_all_fournisseurs():
     return jsonify({'message': 'Tous les fournisseurs ont été supprimés avec succès'})
 
 # Routes pour les automobiles
+
+@app.route('/automobiles', methods=['POST'])
+def create_automobile():
+    data = request.json
+
+    # Créer une nouvelle instance de l'automobile
+    automobile = Automobile(
+        marque=data['marque'],
+        prix=data['prix'],
+        puissance_maximale=data['puissance_maximale'],
+        vitesse_maximale=data['vitesse_maximale'],
+        moteur=data['moteur'],
+        type_vehicule=data['type_vehicule'],
+        couleur=data['couleur'],
+        date_enregistrement=datetime.utcnow(),
+        fournisseur_id=data['fournisseur_id'],
+        description=data['description'],
+        image=data['image']
+    )
+
+    # Enregistrer l'automobile dans la base de données
+    db.session.add(automobile)
+    db.session.commit()
+
+    return jsonify({'message': 'Automobile créée avec succès'})
 @app.route('/automobiles', methods=['GET'])
 def get_automobiles():
     automobiles = Automobile.query.all()
@@ -237,6 +263,9 @@ def get_automobiles():
             'id': automobile.id,
             'marque': automobile.marque,
             'prix': float(automobile.prix),
+            'puissance_maximale': float(automobile.puissance_maximale),
+            'vitesse_maximale': float(automobile.vitesse_maximale),
+            'moteur': float(automobile.moteur),
             'type_vehicule': automobile.type_vehicule,
             'couleur': automobile.couleur,
             'duree': get_duration(automobile.date_enregistrement),
@@ -250,17 +279,12 @@ def get_automobiles():
                 'localisation': automobile.fournisseur.localisation,
                 'adresse': automobile.fournisseur.adresse
             },
+            'description': automobile.description,
             'image': automobile.image
         }
         for automobile in automobiles
     ]
     return jsonify(result)
-
-
-def get_duration(date_enregistrement):
-    delta = datetime.now() - date_enregistrement
-    duration = f"{delta.days} jours, {delta.seconds // 3600} heures, {(delta.seconds // 60) % 60} minutes"
-    return duration
 
 @app.route('/automobiles/<int:automobile_id>', methods=['GET'])
 def get_automobile(automobile_id):
@@ -270,36 +294,28 @@ def get_automobile(automobile_id):
             'id': automobile.id,
             'marque': automobile.marque,
             'prix': float(automobile.prix),
+            'puissance_maximale': float(automobile.puissance_maximale),
+            'vitesse_maximale': float(automobile.vitesse_maximale),
+            'moteur': float(automobile.moteur),
             'type_vehicule': automobile.type_vehicule,
             'couleur': automobile.couleur,
             'duree': (datetime.now().date() - automobile.date_enregistrement.date()).days,
-            'fournisseur_id': automobile.fournisseur_id,
+            'fournisseur_info': {
+                'id': automobile.fournisseur.id,
+                'nom_fournisseur': automobile.fournisseur.nom_fournisseur,
+                'email': automobile.fournisseur.email,
+                'numero_telephone': automobile.fournisseur.numero_telephone,
+                'logo_fournisseur': automobile.fournisseur.logo_fournisseur,
+                'date_enregistrement': automobile.fournisseur.date_enregistrement,
+                'localisation': automobile.fournisseur.localisation,
+                'adresse': automobile.fournisseur.adresse
+            },
+            'description': automobile.description,
             'image': automobile.image
         }
         return jsonify(result)
     else:
         return jsonify({'message': 'Automobile non trouvée'})
-
-@app.route('/automobiles', methods=['POST'])
-def create_automobile():
-    data = request.json
-
-    # Créer une nouvelle instance de l'automobile
-    automobile = Automobile(
-        marque=data['marque'],
-        prix=data['prix'],
-        type_vehicule=data['type_vehicule'],
-        couleur=data['couleur'],
-        date_enregistrement=datetime.utcnow(),
-        fournisseur_id=data['fournisseur_id'],
-        image=data['image']
-    )
-
-    # Enregistrer l'automobile et ses images dans la base de données
-    db.session.add(automobile)
-    db.session.commit()
-
-    return jsonify({'message': 'Automobile créée avec succès'})
 
 @app.route('/automobiles', methods=['DELETE'])
 def delete_all_automobiles():
@@ -309,6 +325,7 @@ def delete_all_automobiles():
     
     return jsonify({'message': 'Tous les automobiles ont été supprimés avec succès'})
 
+#Route pour gérer la recherche de véhicule
 @app.route('/recherche', methods=['GET'])
 def recherche():
     # Récupérer les critères de recherche de la requête
@@ -347,5 +364,9 @@ def recherche():
 
     return jsonify(automobiles)
 
+def get_duration(date_enregistrement):
+    delta = datetime.now() - date_enregistrement
+    duration = f"{delta.days} jours, {delta.seconds // 3600} heures, {(delta.seconds // 60) % 60} minutes"
+    return duration
 if __name__ == "__main__":
     app.run()
