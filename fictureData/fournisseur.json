@@ -1,58 +1,57 @@
 [
-  {
+    {
       "id": 1,
-      "nom_fournisseur": "Fournisseur1",
-      "email": "fournisseur1@example.com",
+      "nom_fournisseur": "John's Auto",
+      "email": "johnsauto@example.com",
       "numero_telephone": "01234567891",
       "logo_fournisseur": "logo1.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation1",
-      "adresse": "Adresse1",
-      "password":"Bendo"
-  },
-  {
+      "localisation": "Los Angeles, USA",
+      "adresse": "123 Main Street",
+      "password": "Bendo"
+    },
+    {
       "id": 2,
-      "nom_fournisseur": "Fournisseur2",
-      "email": "fournisseur2@example.com",
+      "nom_fournisseur": "Car World",
+      "email": "carworld@example.com",
       "numero_telephone": "01234567892",
       "logo_fournisseur": "logo2.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation2",
-      "adresse": "Adresse2",
-      "password":"Bendo"
-  },
-  {
+      "localisation": "London, UK",
+      "adresse": "456 Park Avenue",
+      "password": "Bendo"
+    },
+    {
       "id": 3,
-      "nom_fournisseur": "Fournisseur3",
-      "email": "fournisseur3@example.com",
+      "nom_fournisseur": "AutoMax",
+      "email": "automax@example.com",
       "numero_telephone": "01234567893",
       "logo_fournisseur": "logo3.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation3",
-      "adresse": "Adresse3",
-      "password":"Bendo"
-  },
-  {
+      "localisation": "Paris, France",
+      "adresse": "789 Boulevard des Champs-Élysées",
+      "password": "Bendo"
+    },
+    {
       "id": 4,
-      "nom_fournisseur": "Fournisseur4",
-      "email": "fournisseur4@example.com",
+      "nom_fournisseur": "Speed Motors",
+      "email": "speedmotors@example.com",
       "numero_telephone": "0123456104",
       "logo_fournisseur": "logo4.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation4",
-      "adresse": "Adresse4",
-      "password":"Bendo"
-  },
-  {
+      "localisation": "Tokyo, Japan",
+      "adresse": "1010 Shibuya Crossing",
+      "password": "Bendo"
+    },
+    {
       "id": 5,
-      "nom_fournisseur": "Fournisseur5",
-      "email": "fournisseur5@example.com",
+      "nom_fournisseur": "Elite Auto",
+      "email": "eliteauto@example.com",
       "numero_telephone": "01234567895",
       "logo_fournisseur": "logo5.jpg",
       "date_enregistrement": "2023-06-25T12:00:00",
-      "localisation": "Localisation5",
-      "adresse": "Adresse5",
-      "password":"Bendo"
-  }
-  
-]
+      "localisation": "Sydney, Australia",
+      "adresse": "1212 Kingsford Smith Drive",
+      "password": "Bendo"
+    }
+  ]
