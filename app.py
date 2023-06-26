@@ -12,7 +12,7 @@ from config import config
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-env_type = 'development'
+env_type = 'production'
 ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
@@ -69,7 +69,7 @@ def get_visiteur(visiteur_id):
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt.jwt_decode(token, secret_key, algorithms=['HS256'])
+        decoded_token = jwt_decode(token, secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
 
         visiteur = Visiteur.query.get(visiteur_id)
