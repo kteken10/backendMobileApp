@@ -136,12 +136,13 @@ def authenticate_user():
 
 
 def generate_token(user_id):
+    user_id=user_id
     payload = {
         'user_id': user_id,
         'exp': datetime.utcnow() + timedelta(days=1)
     }
     token = jwt_encode(payload, secret_key, algorithm='HS256')
-    return token
+    return token ,user_id
 
 
 # Routes pour les fournisseurs
