@@ -317,6 +317,19 @@ def get_automobile(automobile_id):
         return jsonify(result)
     else:
         return jsonify({'message': 'Automobile non trouvée'})
+    
+#Compter le nombre de voiture d'un fournisseur     
+@app.route("/fournisseurs/<int:user_id>/vehicle-count", methods=["GET"])
+def get_vehicle_count(user_id):
+    fournisseur = Fournisseur.query.get(user_id)
+    if fournisseur is None:
+        return jsonify({"error": "Fournisseur not found"}), 404
+
+    vehicle_count = len(fournisseur.automobiles)
+    return jsonify({"count": vehicle_count})
+
+
+
 # Récupérer un véhicule connaissant l'id de son fournisseur s
 @app.route('/fournisseurs/<int:fournisseur_id>/vehicles', methods=['GET'])
 def get_fournisseur_vehicles(fournisseur_id):
