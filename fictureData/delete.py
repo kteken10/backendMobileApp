@@ -3,7 +3,7 @@ import requests
 # Désactiver le support du proxy
 requests.adapters.DEFAULT_RETRIES = 5
 requests.packages.urllib3.disable_warnings()
-table=[ "http://localhost:5000/visiteurs","http://localhost:5000/fournisseurs","http://localhost:5000/automobiles"]
+table=[ "http://localhost:5000/automobiles"]
 
 for url in table:
     

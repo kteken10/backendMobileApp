@@ -123,7 +123,6 @@ def authenticate_user():
 
     visiteur = Visiteur.query.filter_by(email=email).first()
     fournisseur = Fournisseur.query.filter_by(email=email).first()
-
     if visiteur and visiteur.password == password:
         token = generate_token(visiteur.id)
         return jsonify({'user_type': 'visiteur', 'token': token,'user_id': visiteur.id})

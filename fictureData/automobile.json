@@ -1,187 +1,211 @@
+[
+  {
+    "marque": "mercedes-van-png-autonation-mercedes-benz",
+    "prix": 25000.0,
+    "puissance_maximale": 200,
+    "vitesse_maximale": 220,
+    "moteur": 2.0,
+    "type_vehicule": "Sedan",
+    "couleur": "Noir",
+    "date_enregistrement": "2022-05-10T09:30:00",
+    "fournisseur_id": 1,
+    "description": "Une voiture élégante et performante. Le modèle Mercedes Van offre un design raffiné, une conduite souple et une technologie de pointe pour une expérience de conduite exceptionnelle.",
+    "image": "https://www.pngkit.com/png/full/134-1345945_mercedes-van-png-autonation-mercedes-benz.png"
+  },
+  {
+    "marque": "grey-mercedes-benz-e-class",
+    "prix": 30000.0,
+    "puissance_maximale": 180,
+    "vitesse_maximale": 200,
+    "moteur": 1.8,
+    "type_vehicule": "Hatchback",
+    "couleur": "Noir",
+    "date_enregistrement": "2022-06-15T14:45:00",
+    "fournisseur_id": 2,
+    "description": "Une voiture compacte et économique. Le modèle Grey Mercedes-Benz E-Class offre un équilibre parfait entre performances, style et efficacité énergétique, idéal pour une conduite urbaine.",
+    "image": "https://www.pngkit.com/png/full/89-892591_grey-mercedes-benz-e-class-car-png-image.png"
+  },
+  {
+    "marque": "mercedes-benz-png-photo-mercedes-benz",
+    "prix": 50000.0,
+    "puissance_maximale": 300,
+    "vitesse_maximale": 250,
+    "moteur": 3.0,
+    "type_vehicule": "SUV",
+    "couleur": "Bleue",
+    "date_enregistrement": "2022-07-20T11:15:00",
+    "fournisseur_id": 3,
+    "description": "Un SUV de luxe avec des performances exceptionnelles. Le modèle Mercedes-Benz est synonyme de qualité, de confort et de style. Il offre également une technologie de pointe et un espace généreux pour satisfaire les besoins de toute la famille.",
+    "image": "https://www.pngkit.com/png/full/134-1345573_mercedes-benz-png-photo-mercedes-benz-blue-car.png"
+  },
+  {
+    "marque": "moto-amarela",
+    "prix": 22000.0,
+    "puissance_maximale": 150,
+    "vitesse_maximale": 190,
+    "moteur": 1.5,
+    "type_vehicule": "Moto",
+    "couleur": "Jaune",
+    "date_enregistrement": "2022-08-05T16:20:00",
+    "fournisseur_id": 4,
+    "description": "Une moto sportive jaune pour les amateurs de vitesse. La moto-amarela offre des performances exceptionnelles, une maniabilité précise et un design accrocheur qui ne passera pas inaperçu sur la route.",
+    "image": "https://www.pngkit.com/png/full/175-1756721_moto-amarela-png-moto-e-carro-junto.png"
+  },
+  {
+    "marque": "classic-bike",
+    "prix": 28000.0,
+    "puissance_maximale": 190,
+    "vitesse_maximale": 210,
+    "moteur": 2.2,
+    "type_vehicule": "Moto",
+    "couleur": "Bordeau",
+    "date_enregistrement": "2022-09-01T13:10:00",
+    "fournisseur_id": 5,
+    "description": "Une moto confortable avec une consommation d'essence réduite. Le modèle Classic Bike associe style classique, performances fiables et une expérience de conduite agréable. Idéal pour les longues balades et les virées en ville.",
+    "image": "https://www.pngkit.com/png/full/779-7793298_framed-art-for-your-wall-classic-bike-custom.png"
+  },
+  {
+    "marque": "Scouteur",
+    "prix": 60000.0,
+    "puissance_maximale": 350,
+    "vitesse_maximale": 260,
+    "moteur": 3.5,
+    "type_vehicule": "Coupé",
+    "couleur": "Blanc",
+    "date_enregistrement": "2022-10-18T10:00:00",
+    "fournisseur_id": 4,
+    "description": "Un coupé de luxe avec un design élégant. Le modèle Scouteur offre une combinaison parfaite entre performance, confort et style. Il est équipé de caractéristiques haut de gamme et d'une technologie avancée pour une expérience de conduite exceptionnelle.",
+    "image": "https://www.pngkit.com/png/full/391-3910782_i-want-this-so-much-moto-sym-fiddle.png"
+  },
+  {
+    "marque": "Rover-range",
+    "prix": 45000.0,
+    "puissance_maximale": 280,
+    "vitesse_maximale": 240,
+    "moteur": 2.8,
+    "type_vehicule": "Sedan",
+    "couleur": "Rouge",
+    "date_enregistrement": "2022-11-25T15:30:00",
+    "fournisseur_id": 3,
+    "description": "Une Rover-range de qualité supérieure avec un intérieur luxueux. Le modèle Rover-range offre des performances haut de gamme, un confort exceptionnel et un design élégant. Parfait pour ceux qui recherchent le summum du luxe et du raffinement.",
+    "image": "https://www.pngkit.com/png/full/129-1299866_2016-land-rover-range-rover-sport.png"
+  },
+  {
+    "marque": "rover-velar-2018",
+    "prix": 28000.0,
+    "puissance_maximale": 170,
+    "vitesse_maximale": 200,
+    "moteur": 1.8,
+    "type_vehicule": "SUV",
+    "couleur": "Gris",
+    "date_enregistrement": "2022-12-12T12:45:00",
+    "fournisseur_id": 2,
+    "description": "Un SUV élégant et polyvalent avec une conduite fluide. Le modèle Rover Velar 2018 offre un design moderne, des fonctionnalités avancées et des performances fiables. Parfait pour les aventures en plein air et les déplacements quotidiens en ville.",
+    "image": "https://www.pngkit.com/png/full/1-18704_rover-velar-2018-png.png"
+  },
+  {
+    "marque": "mercedes-van-png-autonation-mercedes-benz",
+    "prix": 25000.0,
+    "puissance_maximale": 200,
+    "vitesse_maximale": 220,
+    "moteur": 2.0,
+    "type_vehicule": "Sedan",
+    "couleur": "Noir",
+    "date_enregistrement": "2022-05-10T09:30:00",
+    "fournisseur_id": 1,
+    "description": "Une voiture élégante et performante. Le modèle Mercedes Van offre un design raffiné, une conduite souple et une technologie de pointe pour une expérience de conduite exceptionnelle.",
+    "image": "https://www.pngkit.com/png/full/134-1345945_mercedes-van-png-autonation-mercedes-benz.png"
+  },
+  {
+    "marque": "grey-mercedes-benz-e-class",
+    "prix": 30000.0,
+    "puissance_maximale": 180,
+    "vitesse_maximale": 200,
+    "moteur": 1.8,
+    "type_vehicule": "Hatchback",
+    "couleur": "Noir",
+    "date_enregistrement": "2022-06-15T14:45:00",
+    "fournisseur_id": 2,
+    "description": "Une voiture compacte et économique. Le modèle Grey Mercedes-Benz E-Class offre un équilibre parfait entre performances, style et efficacité énergétique, idéal pour une conduite urbaine.",
+    "image": "https://www.pngkit.com/png/full/89-892591_grey-mercedes-benz-e-class-car-png-image.png"
+  },
+  {
+    "marque": "mercedes-benz-png-photo-mercedes-benz",
+    "prix": 50000.0,
+    "puissance_maximale": 300,
+    "vitesse_maximale": 250,
+    "moteur": 3.0,
+    "type_vehicule": "SUV",
+    "couleur": "Bleue",
+    "date_enregistrement": "2022-07-20T11:15:00",
+    "fournisseur_id": 3,
+    "description": "Un SUV de luxe avec des performances exceptionnelles. Le modèle Mercedes-Benz est synonyme de qualité, de confort et de style. Il offre également une technologie de pointe et un espace généreux pour satisfaire les besoins de toute la famille.",
+    "image": "https://www.pngkit.com/png/full/134-1345573_mercedes-benz-png-photo-mercedes-benz-blue-car.png"
+  },
+  {
+    "marque": "moto-amarela",
+    "prix": 22000.0,
+    "puissance_maximale": 150,
+    "vitesse_maximale": 190,
+    "moteur": 1.5,
+    "type_vehicule": "Moto",
+    "couleur": "Jaune",
+    "date_enregistrement": "2022-08-05T16:20:00",
+    "fournisseur_id": 4,
+    "description": "Une moto sportive jaune pour les amateurs de vitesse. La moto-amarela offre des performances exceptionnelles, une maniabilité précise et un design accrocheur qui ne passera pas inaperçu sur la route.",
+    "image": "https://www.pngkit.com/png/full/175-1756721_moto-amarela-png-moto-e-carro-junto.png"
+  },
+  {
+    "marque": "classic-bike",
+    "prix": 28000.0,
+    "puissance_maximale": 190,
+    "vitesse_maximale": 210,
+    "moteur": 2.2,
+    "type_vehicule": "Moto",
+    "couleur": "Bordeau",
+    "date_enregistrement": "2022-09-01T13:10:00",
+    "fournisseur_id": 5,
+    "description": "Une moto confortable avec une consommation d'essence réduite. Le modèle Classic Bike associe style classique, performances fiables et une expérience de conduite agréable. Idéal pour les longues balades et les virées en ville.",
+    "image": "https://www.pngkit.com/png/full/779-7793298_framed-art-for-your-wall-classic-bike-custom.png"
+  },
+  {
+    "marque": "Scouteur",
+    "prix": 60000.0,
+    "puissance_maximale": 350,
+    "vitesse_maximale": 260,
+    "moteur": 3.5,
+    "type_vehicule": "Coupé",
+    "couleur": "Blanc",
+    "date_enregistrement": "2022-10-18T10:00:00",
+    "fournisseur_id": 4,
+    "description": "Un coupé de luxe avec un design élégant. Le modèle Scouteur offre une combinaison parfaite entre performance, confort et style. Il est équipé de caractéristiques haut de gamme et d'une technologie avancée pour une expérience de conduite exceptionnelle.",
+    "image": "https://www.pngkit.com/png/full/391-3910782_i-want-this-so-much-moto-sym-fiddle.png"
+  },
+  {
+    "marque": "Rover-range",
+    "prix": 45000.0,
+    "puissance_maximale": 280,
+    "vitesse_maximale": 240,
+    "moteur": 2.8,
+    "type_vehicule": "Sedan",
+    "couleur": "Rouge",
+    "date_enregistrement": "2022-11-25T15:30:00",
+    "fournisseur_id": 3,
+    "description": "Une Rover-range de qualité supérieure avec un intérieur luxueux. Le modèle Rover-range offre des performances haut de gamme, un confort exceptionnel et un design élégant. Parfait pour ceux qui recherchent le summum du luxe et du raffinement.",
+    "image": "https://www.pngkit.com/png/full/129-1299866_2016-land-rover-range-rover-sport.png"
+  },
+  {
+    "marque": "rover-velar-2018",
+    "prix": 28000.0,
+    "puissance_maximale": 170,
+    "vitesse_maximale": 200,
+    "moteur": 1.8,
+    "type_vehicule": "SUV",
+    "couleur": "Gris",
+    "date_enregistrement": "2022-12-12T12:45:00",
+    "fournisseur_id": 2,
+    "description": "Un SUV élégant et polyvalent avec une conduite fluide. Le modèle Rover Velar 2018 offre un design moderne, des fonctionnalités avancées et des performances fiables. Parfait pour les aventures en plein air et les déplacements quotidiens en ville.",
+    "image": "https://www.pngkit.com/png/full/1-18704_rover-velar-2018-png.png"
+  }
 
-  [
-    {
-      
-      "marque": "mercedes-van-png-autonation-mercedes-benz",
-      "prix": 25000.00,
-      "puissance_maximale": 200,
-      "vitesse_maximale": 220,
-      "moteur": 2.0,
-      "type_vehicule": "Sedan",
-      "couleur": "Noir",
-      "date_enregistrement": "2022-05-10T09:30:00",
-      "fournisseur_id": 1,
-      "description": "Une voiture élégante et performante.",
-      "image": "https://www.pngkit.com/png/full/134-1345945_mercedes-van-png-autonation-mercedes-benz.png"
-    },
-    {
-      
-      "marque": "grey-mercedes-benz-e-class",
-      "prix": 30000.00,
-      "puissance_maximale": 180,
-      "vitesse_maximale": 200,
-      "moteur": 1.8,
-      "type_vehicule": "Hatchback",
-      "couleur": "Rouge",
-      "date_enregistrement": "2022-06-15T14:45:00",
-      "fournisseur_id": 2,
-      "description": "Une voiture compacte et économique.",
-      "image": "https://www.pngkit.com/png/full/89-892591_grey-mercedes-benz-e-class-car-png-image.png"
-    },
-    {
-      
-      "marque": "mercedes-benz-png-photo-mercedes-benz",
-      "prix": 50000.00,
-      "puissance_maximale": 300,
-      "vitesse_maximale": 250,
-      "moteur": 3.0,
-      "type_vehicule": "SUV",
-      "couleur": "Blanc",
-      "date_enregistrement": "2022-07-20T11:15:00",
-      "fournisseur_id": 3,
-      "description": "Un SUV de luxe avec des performances exceptionnelles.",
-      "image": "https://www.pngkit.com/png/full/134-1345573_mercedes-benz-png-photo-mercedes-benz-blue-car.png"
-    },
-    {
-      
-      "marque": "moto-amarela",
-      "prix": 22000.00,
-      "puissance_maximale": 150,
-      "vitesse_maximale": 190,
-      "moteur": 1.5,
-      "type_vehicule": "Coupe",
-      "couleur": "Bleu",
-      "date_enregistrement": "2022-08-05T16:20:00",
-      "fournisseur_id": 4,
-      "description": "Une Moto sportive  Jaune pour les amateurs de vitesse.",
-      "image": "https://www.pngkit.com/png/full/175-1756721_moto-amarela-png-moto-e-carro-junto.png"
-    },
-    {
-    
-      "marque": "classic-bike",
-      "prix": 28000.00,
-      "puissance_maximale": 190,
-      "vitesse_maximale": 210,
-      "moteur": 2.2,
-      "type_vehicule": "Berline",
-      "couleur": "Gris",
-      "date_enregistrement": "2022-09-01T13:10:00",
-      "fournisseur_id": 5,
-      "description": "Une Moto confortable avec une consommation d'essence réduite.",
-      "image": "https://www.pngkit.com/png/full/779-7793298_framed-art-for-your-wall-classic-bike-custom.png"
-    },
-    {
-    
-      "marque": "Scouteur",
-      "prix": 60000.00,
-      "puissance_maximale": 350,
-      "vitesse_maximale": 260,
-      "moteur": 3.5,
-      "type_vehicule": "Coupé",
-      "couleur": "Argent",
-      "date_enregistrement": "2022-10-18T10:00:00",
-      "fournisseur_id": 4,
-      "description": "Un coupé de luxe avec un design élégant.",
-      "image": "https://www.pngkit.com/png/full/391-3910782_i-want-this-so-much-moto-sym-fiddle.png"
-    },
-    {
-    
-      "marque": "Rover-range",
-      "prix": 45000.00,
-      "puissance_maximale": 280,
-      "vitesse_maximale": 240,
-      "moteur": 2.8,
-      "type_vehicule": "Sedan",
-      "couleur": "Rouge",
-      "date_enregistrement": "2022-11-25T15:30:00",
-      "fournisseur_id": 3,
-      "description": "Une Rover-range de qualité supérieure avec un intérieur luxueux.",
-      "image": "https://www.pngkit.com/png/full/129-1299866_2016-land-rover-range-rover-sport.png"
-    },
-    {
-   
-      "marque": "rover-velar-2018",
-      "prix": 28000.00,
-      "puissance_maximale": 170,
-      "vitesse_maximale": 200,
-      "moteur": 1.8,
-      "type_vehicule": "Hatchback",
-      "couleur": "Jaune",
-      "date_enregistrement": "2022-12-03T12:45:00",
-      "fournisseur_id": 1,
-      "description": "Une voiture compacte et polyvalente.",
-      "image": "https://www.pngkit.com/png/full/332-3321570_2018-land-rover-range-rover-velar-2018-land.png"
-    },
-    {
-      
-      "marque": "Luxary",
-      "prix": 24000.00,
-      "puissance_maximale": 160,
-      "vitesse_maximale": 195,
-      "moteur": 1.6,
-      "type_vehicule": "SUV",
-      "couleur": "Marron",
-      "date_enregistrement": "2023-01-08T09:15:00",
-      "fournisseur_id": 4,
-      "description": "Un SUV familial spacieux avec de nombreuses fonctionnalités.",
-      "image": "https://www.pngkit.com/png/full/47-479289_our-locksmith-services-are-available-daily-from-9am.png"
-    },
-    {
-    
-      "marque": "ducati-streetfighter",
-      "prix": 32000.00,
-      "puissance_maximale": 220,
-      "vitesse_maximale": 230,
-      "moteur": 2.2,
-      "type_vehicule": "Coupe",
-      "couleur": "Noir",
-      "date_enregistrement": "2023-02-14T14:50:00",
-      "fournisseur_id": 3,
-      "description": "Une moto de sport élégante et puissante.",
-      "image": "https://www.pngkit.com/png/full/82-826175_ducati-streetfighter-png-image-ducati-streetfighter-848-png.png"
-    },
-    {
-      
-      "marque": "AIR BUS",
-      "prix": 28000.00,
-      "puissance_maximale": 170,
-      "vitesse_maximale": 200,
-      "moteur": 1.8,
-      "type_vehicule": "Hatchback",
-      "couleur": "Jaune",
-      "date_enregistrement": "2022-12-03T12:45:00",
-      "fournisseur_id": 1,
-      "description": "BUS compacte compacte et polyvalente.",
-      "image": "https://www.pngkit.com/png/full/1012-10124846_bus.png"
-    },
-    {
-    
-      "marque": " Scania Bus",
-      "prix": 24000.00,
-      "puissance_maximale": 160,
-      "vitesse_maximale": 195,
-      "moteur": 1.6,
-      "type_vehicule": "SUV",
-      "couleur": "Marron",
-      "date_enregistrement": "2023-01-08T09:15:00",
-      "fournisseur_id": 1,
-      "description": "Un Bus familial spacieux avec de nombreuses fonctionnalités.",
-      "image": "https://www.pngkit.com/png/full/1012-10124778_53seater1509623874-15seater11509623876-15seaterinside1509623877-scania-bus-png.png"
-    },
-    {
-    
-      "marque": "travel-bus",
-      "prix": 42000.00,
-      "puissance_maximale": 220,
-      "vitesse_maximale": 230,
-      "moteur": 2.2,
-      "type_vehicule": "Coupe",
-      "couleur": "Bleu",
-      "date_enregistrement": "2023-02-14T14:50:00",
-      "fournisseur_id": 1,
-      "description": "Une moto de sport élégante et puissante.",
-      "image": "https://www.pngkit.com/png/full/18-181937_related-post-for-travel-bus-png-luxury-bus.png"
-    }
-  ]
-  
-  
+]
