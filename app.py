@@ -126,11 +126,11 @@ def authenticate_user():
 
     if visiteur and visiteur.password == password:
         token = generate_token(visiteur.id)
-        return jsonify({'user_type': 'visiteur', 'token': token})
+        return jsonify({'user_type': 'visiteur', 'token': token,'user_id': visiteur.id})
 
     elif fournisseur and fournisseur.password == password:
         token = generate_token(fournisseur.id)
-        return jsonify({'user_type': 'fournisseur', 'token': token})
+        return jsonify({'user_type': 'fournisseur', 'token': token , 'user_id': fournisseur.id})
 
     return jsonify({'message': 'Invalid credentials'}), 401
 
@@ -142,7 +142,7 @@ def generate_token(user_id):
         'exp': datetime.utcnow() + timedelta(days=1)
     }
     token = jwt_encode(payload, secret_key, algorithm='HS256')
-    return token ,user_id
+    return token 
 
 
 # Routes pour les fournisseurs
