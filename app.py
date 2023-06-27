@@ -329,7 +329,7 @@ def get_vehicle_count(user_id):
     return jsonify({"count": vehicle_count})
 
 #Supprimer une voiture connaissant son ID 
-@app.route("/vehicles/<string:vehicle_id>", methods=["DELETE"])
+@app.route("/vehicles/<int:vehicle_id>", methods=["DELETE"])
 def delete_vehicle(vehicle_id):
     try:
         # Recherche du véhicule à supprimer dans la base de données
@@ -348,7 +348,7 @@ def delete_vehicle(vehicle_id):
 
 
 
-# Récupérer un véhicule connaissant l'id de son fournisseur s
+# Récupérer un véhicule connaissant l'id de son fournisseur 
 @app.route('/fournisseurs/<int:fournisseur_id>/vehicles', methods=['GET'])
 def get_fournisseur_vehicles(fournisseur_id):
     vehicles = Automobile.query.filter_by(fournisseur_id=fournisseur_id).all()
