@@ -328,6 +328,24 @@ def get_vehicle_count(user_id):
     vehicle_count = len(fournisseur.automobiles)
     return jsonify({"count": vehicle_count})
 
+#Supprimer une voiture connaissant son ID 
+@app.route("/vehicles/<string:vehicle_id>", methods=["DELETE"])
+def delete_vehicle(vehicle_id):
+    try:
+        # Recherche du véhicule à supprimer dans la base de données
+        vehicle = Automobile.query.get(vehicle_id)
+
+        if vehicle:
+            # Suppression du véhicule
+            db.session.delete(vehicle)
+            db.session.commit()
+
+            return jsonify({"message": "Véhicule supprimé avec succès"})
+        else:
+            return jsonify({"error": "Véhicule non trouvé"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 
 # Récupérer un véhicule connaissant l'id de son fournisseur s
