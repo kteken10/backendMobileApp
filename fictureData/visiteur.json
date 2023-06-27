@@ -30,30 +30,6 @@
       "numero_telephone": "01234567894",
       "photo_profil": "profil4.jpg",
       "password": "password4"
-  },
-  {
-      "nom": "Nom5",
-      "email": "email5@example.com",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "numero_telephone": "01234567895",
-      "photo_profil": "profil5.jpg",
-      "password": "password5"
-  },
-  {
-      "nom": "Nom6",
-      "email": "email6@example.com",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "numero_telephone": "01234567896",
-      "photo_profil": "profil6.jpg",
-      "password": "password6"
-  },
-  {
-      "nom": "Nom7",
-      "email": "email7@example.com",
-      "date_enregistrement": "2023-06-25T12:00:00",
-      "numero_telephone": "01234567897",
-      "photo_profil": "profil7.jpg",
-      "password": "password7"
   }
  
 ]

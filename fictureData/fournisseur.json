@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      
       "nom_fournisseur": "John's Auto",
       "email": "johnsauto@example.com",
       "numero_telephone": "01234567891",
@@ -11,7 +11,7 @@
       "password": "Bendo"
     },
     {
-      "id": 2,
+      
       "nom_fournisseur": "Car World",
       "email": "carworld@example.com",
       "numero_telephone": "01234567892",
@@ -22,7 +22,7 @@
       "password": "Bendo"
     },
     {
-      "id": 3,
+     
       "nom_fournisseur": "AutoMax",
       "email": "automax@example.com",
       "numero_telephone": "01234567893",
@@ -33,7 +33,7 @@
       "password": "Bendo"
     },
     {
-      "id": 4,
+     
       "nom_fournisseur": "Speed Motors",
       "email": "speedmotors@example.com",
       "numero_telephone": "0123456104",
@@ -44,7 +44,7 @@
       "password": "Bendo"
     },
     {
-      "id": 5,
+    
       "nom_fournisseur": "Elite Auto",
       "email": "eliteauto@example.com",
       "numero_telephone": "01234567895",

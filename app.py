@@ -324,8 +324,7 @@ def delete_all_automobiles():
     db.session.commit()
     
     return jsonify({'message': 'Tous les automobiles ont été supprimés avec succès'})
-
-#Route pour gérer la recherche de véhicule
+# Route pour gérer la recherche de véhicule
 @app.route('/recherche', methods=['GET'])
 def recherche():
     # Récupérer les critères de recherche de la requête
@@ -335,7 +334,7 @@ def recherche():
     fournisseur = request.args.get('fournisseur')
 
     # Construire la requête de recherche
-    query = db.session.query(Automobile)
+    query = Automobile.query
 
     if type_vehicule:
         query = query.filter(Automobile.type_vehicule == type_vehicule)
@@ -356,9 +355,23 @@ def recherche():
             'id': automobile.id,
             'marque': automobile.marque,
             'prix': str(automobile.prix),
+            'puissance_maximale': str(automobile.puissance_maximale),
+            'vitesse_maximale': str(automobile.vitesse_maximale),
+            'moteur': str(automobile.moteur),
             'type_vehicule': automobile.type_vehicule,
             'couleur': automobile.couleur,
-            'fournisseur': automobile.fournisseur.nom_fournisseur,
+            'date_enregistrement': automobile.date_enregistrement.isoformat(),
+             'fournisseur_info': {
+                'id': automobile.fournisseur.id,
+                'nom_fournisseur': automobile.fournisseur.nom_fournisseur,
+                'email': automobile.fournisseur.email,
+                'numero_telephone': automobile.fournisseur.numero_telephone,
+                'logo_fournisseur': automobile.fournisseur.logo_fournisseur,
+                'date_enregistrement': automobile.fournisseur.date_enregistrement,
+                'localisation': automobile.fournisseur.localisation,
+                'adresse': automobile.fournisseur.adresse
+            },
+            'description': automobile.description,
             'image': automobile.image
         })
 
