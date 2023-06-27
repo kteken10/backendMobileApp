@@ -317,6 +317,37 @@ def get_automobile(automobile_id):
         return jsonify(result)
     else:
         return jsonify({'message': 'Automobile non trouvée'})
+# Récupérer un véhicule connaissant l'id de son fournisseur s
+@app.route('/fournisseurs/<int:fournisseur_id>/vehicles', methods=['GET'])
+def get_fournisseur_vehicles(fournisseur_id):
+    vehicles = Automobile.query.filter_by(fournisseur_id=fournisseur_id).all()
+    result = []
+    for vehicle in vehicles:
+        vehicle_data = {
+            'id': vehicle.id,
+            'marque': vehicle.marque,
+            'prix': float(vehicle.prix),
+            'puissance_maximale': float(vehicle.puissance_maximale),
+            'vitesse_maximale': float(vehicle.vitesse_maximale),
+            'moteur': float(vehicle.moteur),
+            'type_vehicule': vehicle.type_vehicule,
+            'couleur': vehicle.couleur,
+            'duree': (datetime.now().date() - vehicle.date_enregistrement.date()).days,
+            'fournisseur_info': {
+                'id': vehicle.fournisseur.id,
+                'nom_fournisseur': vehicle.fournisseur.nom_fournisseur,
+                'email': vehicle.fournisseur.email,
+                'numero_telephone': vehicle.fournisseur.numero_telephone,
+                'logo_fournisseur': vehicle.fournisseur.logo_fournisseur,
+                'date_enregistrement': vehicle.fournisseur.date_enregistrement,
+                'localisation': vehicle.fournisseur.localisation,
+                'adresse': vehicle.fournisseur.adresse
+            },
+            'description': vehicle.description,
+            'image': vehicle.image
+        }
+        result.append(vehicle_data)
+    return jsonify(result)
 
 @app.route('/automobiles', methods=['DELETE'])
 def delete_all_automobiles():
