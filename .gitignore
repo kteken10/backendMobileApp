@@ -1,3 +1,6 @@
 .env
 __pycache__
 myenv
+migrations
+.vscode
+__pycache__
