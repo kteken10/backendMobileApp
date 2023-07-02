@@ -401,7 +401,8 @@ def recherche():
     if type_vehicule:
         query = query.filter(Automobile.type_vehicule == type_vehicule)
     if marque:
-        query = query.filter(Automobile.marque == marque)
+        query = query.filter(Automobile.marque.like(f'%{marque}%'))
+        
     if couleur:
         query = query.filter(Automobile.couleur == couleur)
     if fournisseur:
@@ -423,7 +424,7 @@ def recherche():
             'type_vehicule': automobile.type_vehicule,
             'couleur': automobile.couleur,
             'date_enregistrement': automobile.date_enregistrement.isoformat(),
-             'fournisseur_info': {
+            'fournisseur_info': {
                 'id': automobile.fournisseur.id,
                 'nom_fournisseur': automobile.fournisseur.nom_fournisseur,
                 'email': automobile.fournisseur.email,
@@ -438,6 +439,7 @@ def recherche():
         })
 
     return jsonify(automobiles)
+
 
 def get_duration(date_enregistrement):
     delta = datetime.now() - date_enregistrement

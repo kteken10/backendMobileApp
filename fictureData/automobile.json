@@ -1,7 +1,7 @@
 [
   {
     "marque": "mercedes-van-png-autonation-mercedes-benz",
-    "prix": 25000.0,
+    "prix": 2500000.0,
     "puissance_maximale": 200,
     "vitesse_maximale": 220,
     "moteur": 2.0,
@@ -14,7 +14,7 @@
   },
   {
     "marque": "grey-mercedes-benz-e-class",
-    "prix": 30000.0,
+    "prix": 3000000.0,
     "puissance_maximale": 180,
     "vitesse_maximale": 200,
     "moteur": 1.8,
@@ -27,7 +27,7 @@
   },
   {
     "marque": "mercedes-benz-png-photo-mercedes-benz",
-    "prix": 50000.0,
+    "prix": 500000.0,
     "puissance_maximale": 300,
     "vitesse_maximale": 250,
     "moteur": 3.0,
@@ -40,7 +40,7 @@
   },
   {
     "marque": "moto-amarela",
-    "prix": 22000.0,
+    "prix": 2200000.0,
     "puissance_maximale": 150,
     "vitesse_maximale": 190,
     "moteur": 1.5,
@@ -53,7 +53,7 @@
   },
   {
     "marque": "classic-bike",
-    "prix": 28000.0,
+    "prix": 2800000.0,
     "puissance_maximale": 190,
     "vitesse_maximale": 210,
     "moteur": 2.2,
@@ -66,7 +66,7 @@
   },
   {
     "marque": "Scouteur",
-    "prix": 60000.0,
+    "prix": 6000000.0,
     "puissance_maximale": 350,
     "vitesse_maximale": 260,
     "moteur": 3.5,
@@ -79,20 +79,20 @@
   },
   {
     "marque": "Rover-range",
-    "prix": 45000.0,
+    "prix": 3200000.0,
     "puissance_maximale": 280,
     "vitesse_maximale": 240,
     "moteur": 2.8,
     "type_vehicule": "Sedan",
-    "couleur": "Rouge",
+    "couleur": "Noir",
     "date_enregistrement": "2022-11-25T15:30:00",
     "fournisseur_id": 3,
     "description": "Une Rover-range de qualité supérieure avec un intérieur luxueux. Le modèle Rover-range offre des performances haut de gamme, un confort exceptionnel et un design élégant. Parfait pour ceux qui recherchent le summum du luxe et du raffinement.",
-    "image": "https://www.pngkit.com/png/full/129-1299866_2016-land-rover-range-rover-sport.png"
+    "image": "https://www.pngkit.com/png/full/5-58498_black-range-rover-piano-car-png-image-range.png"
   },
   {
-    "marque": "rover-velar-2018",
-    "prix": 28000.0,
+    "marque": "Camion",
+    "prix": 28000000.0,
     "puissance_maximale": 170,
     "vitesse_maximale": 200,
     "moteur": 1.8,
@@ -100,12 +100,12 @@
     "couleur": "Gris",
     "date_enregistrement": "2022-12-12T12:45:00",
     "fournisseur_id": 2,
-    "description": "Un SUV élégant et polyvalent avec une conduite fluide. Le modèle Rover Velar 2018 offre un design moderne, des fonctionnalités avancées et des performances fiables. Parfait pour les aventures en plein air et les déplacements quotidiens en ville.",
-    "image": "https://www.pngkit.com/png/full/1-18704_rover-velar-2018-png.png"
+    "description": "Un SUV élégant et polyvalent avec une conduite fluide. Le modèle de Camion Velar 2018 offre un design moderne, des fonctionnalités avancées et des performances fiables. Parfait pour les aventures en plein air et les déplacements quotidiens en ville.",
+    "image": "https://www.pngkit.com/png/full/772-7723119_voiture-sans-permis-pick-up.png"
   },
   {
     "marque": "mercedes-van-png-autonation-mercedes-benz",
-    "prix": 25000.0,
+    "prix": 2500000.0,
     "puissance_maximale": 200,
     "vitesse_maximale": 220,
     "moteur": 2.0,
@@ -118,7 +118,7 @@
   },
   {
     "marque": "grey-mercedes-benz-e-class",
-    "prix": 30000.0,
+    "prix": 30000000.0,
     "puissance_maximale": 180,
     "vitesse_maximale": 200,
     "moteur": 1.8,
@@ -131,7 +131,7 @@
   },
   {
     "marque": "mercedes-benz-png-photo-mercedes-benz",
-    "prix": 50000.0,
+    "prix": 50000000.0,
     "puissance_maximale": 300,
     "vitesse_maximale": 250,
     "moteur": 3.0,
@@ -144,7 +144,7 @@
   },
   {
     "marque": "moto-amarela",
-    "prix": 22000.0,
+    "prix": 22000000.0,
     "puissance_maximale": 150,
     "vitesse_maximale": 190,
     "moteur": 1.5,
@@ -157,7 +157,7 @@
   },
   {
     "marque": "classic-bike",
-    "prix": 28000.0,
+    "prix": 28000000.0,
     "puissance_maximale": 190,
     "vitesse_maximale": 210,
     "moteur": 2.2,
@@ -170,7 +170,7 @@
   },
   {
     "marque": "Scouteur",
-    "prix": 60000.0,
+    "prix": 6000000.0,
     "puissance_maximale": 350,
     "vitesse_maximale": 260,
     "moteur": 3.5,
@@ -183,7 +183,7 @@
   },
   {
     "marque": "Rover-range",
-    "prix": 45000.0,
+    "prix": 3500000.0,
     "puissance_maximale": 280,
     "vitesse_maximale": 240,
     "moteur": 2.8,
@@ -196,16 +196,53 @@
   },
   {
     "marque": "rover-velar-2018",
-    "prix": 28000.0,
+    "prix": 28000000.0,
     "puissance_maximale": 170,
     "vitesse_maximale": 200,
     "moteur": 1.8,
     "type_vehicule": "SUV",
-    "couleur": "Gris",
+    "couleur": "Blanc",
     "date_enregistrement": "2022-12-12T12:45:00",
     "fournisseur_id": 2,
     "description": "Un SUV élégant et polyvalent avec une conduite fluide. Le modèle Rover Velar 2018 offre un design moderne, des fonctionnalités avancées et des performances fiables. Parfait pour les aventures en plein air et les déplacements quotidiens en ville.",
-    "image": "https://www.pngkit.com/png/full/1-18704_rover-velar-2018-png.png"
+    "image": "https://www.pngkit.com/png/full/332-3321570_2018-land-rover-range-rover-velar-2018-land.png"
+  }, {
+    "marque": "Bus-Protour",
+    "prix": 58000000.0,
+    "puissance_maximale": 170,
+    "vitesse_maximale": 200,
+    "moteur": 1.8,
+    "type_vehicule": "Bus",
+    "couleur": "Gris",
+    "date_enregistrement": "2022-12-12T12:45:00",
+    "fournisseur_id": 2,
+    "description": "Un CarBus élégant et polyvalent avec une conduite fluide. Le modèle Bus-Protour 2018 offre un design moderne, des fonctionnalités avancées et des performances fiables. Parfait pour les aventures en plein air et les déplacements quotidiens en ville.",
+    "image": "https://www.pngkit.com/png/full/1012-10124778_53seater1509623874-15seater11509623876-15seaterinside1509623877-scania-bus-png.png"
   }
-
+  , {
+    "marque": "Bus-Sonar",
+    "prix": 2800000.0,
+    "puissance_maximale": 170,
+    "vitesse_maximale": 500,
+    "moteur": 1.8,
+    "type_vehicule": "Bus",
+    "couleur": "Bleue",
+    "date_enregistrement": "2022-12-12T12:45:00",
+    "fournisseur_id": 2,
+    "description": "Un CarBus élégant et polyvalent avec une conduite fluide. Le modèle Bus-Protour 2018 offre un design moderne, des fonctionnalités avancées et des performances fiables. Parfait pour les aventures en plein air et les déplacements quotidiens en ville.",
+    "image": "https://www.pngkit.com/png/full/1012-10124846_bus.png"
+  },
+  {
+    "marque": "Bus-Vans",
+    "prix": 5000000.0,
+    "puissance_maximale": 170,
+    "vitesse_maximale": 300,
+    "moteur": 1.8,
+    "type_vehicule": "Bus",
+    "couleur": "Rouge",
+    "date_enregistrement": "2022-12-12T12:45:00",
+    "fournisseur_id": 2,
+    "description": "Un CarBus élégant et polyvalent avec une conduite fluide. Le modèle Bus-Protour 2018 offre un design moderne, des fonctionnalités avancées et des performances fiables. Parfait pour les aventures en plein air et les déplacements quotidiens en ville.",
+    "image": "https://www.pngkit.com/png/full/77-772822_lightweight-single-deck-bus-alexander-dennis-bus.png"
+  }
 ]
