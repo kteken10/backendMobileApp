@@ -9,7 +9,7 @@ class Visiteur(db.Model):
     # Modèle pour les visiteurs
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nom = db.Column(db.String(255), nullable=False)
-    email = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(255), nullable=False , unique=True)
     numero_telephone = db.Column(db.String(255), nullable=False)
     photo_profil = db.Column(db.String(255))
     password = db.Column(db.String(255), nullable=False)
@@ -19,7 +19,7 @@ class Fournisseur(db.Model):
     # Modèle pour les fournisseurs
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nom_fournisseur = db.Column(db.String(255), nullable=False)
-    email = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(255), nullable=False ,unique=True)
     numero_telephone = db.Column(db.String(255), nullable=False)
     logo_fournisseur = db.Column(db.String(255))
     password = db.Column(db.String(255), nullable=False)
