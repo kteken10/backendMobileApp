@@ -1,5 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from datetime import datetime
+
 
 db = SQLAlchemy()
 
@@ -46,3 +48,4 @@ class ImageAutomobile(db.Model):
     automobile_id = db.Column(db.Integer, db.ForeignKey('automobile.id'), nullable=False)
     image = db.Column(db.String(255), nullable=False)
     automobile = db.relationship('Automobile', backref=db.backref('images', lazy=True))
+

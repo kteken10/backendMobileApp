@@ -2,12 +2,13 @@ import os
 import jwt
 from jwt import encode as jwt_encode, decode as jwt_decode
 from os import environ as env
+from models import db, Visiteur, Fournisseur, Automobile
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, session, jsonify, url_for, request
-
+from flask_migrate import Migrate
 # from flask_migrate import Migrate
 from flask_cors import CORS
-from models import db, Visiteur, Fournisseur, Automobile
+
 from config import config
 from datetime import datetime, timedelta
 
@@ -25,7 +26,7 @@ db.init_app(app)
 # Création des tables
 with app.app_context():
     db.create_all()
-
+migrate = Migrate(app, db)
 CORS(app)  # Pour autoriser les requêtes CORS
 
 
