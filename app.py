@@ -18,8 +18,8 @@ ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
 
-secret_key = env.get("SECRET_KEY")
-app.secret_key = secret_key
+secret = env.get("SECRET_KEY")
+app.secret_key = secret
 app.config.from_object(config[env_type])
 db.init_app(app)
 
@@ -56,7 +56,7 @@ def get_visiteurs():
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt_decode(token, secret_key, algorithms=['HS256'])
+        decoded_token = jwt_decode(token, secret_key, algorithms=['HS256']) # type: ignore
         user_id = decoded_token['user_id']
 
         visiteurs = Visiteur.query.all()
@@ -86,7 +86,7 @@ def get_visiteur(visiteur_id):
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt_decode(token, secret_key, algorithms=['HS256'])
+        decoded_token = jwt_decode(token, secret, algorithms=['HS256'])
         user_id = decoded_token['user_id']
 
         visiteur = Visiteur.query.get(visiteur_id)
@@ -141,7 +141,7 @@ def generate_token(user_id):
         'user_id': user_id,
         'exp': datetime.utcnow() + timedelta(days=1)
     }
-    token = jwt_encode(payload, secret_key, algorithm='HS256')
+    token = jwt_encode(payload, secret_key, algorithm='HS256') # type: ignore
     return token 
 
 
@@ -170,7 +170,7 @@ def get_fournisseurs():
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
+        decoded_token = jwt.decode(token, secret, algorithms=['HS256'])
         user_id = decoded_token['user_id']
 
         fournisseurs = Fournisseur.query.all()
@@ -205,7 +205,7 @@ def delete_all_fournisseurs():
 
 @app.route('/automobiles', methods=['POST'])
 def create_automobile():
-    data = request.json
+    data = request.get_json()
 
     # Créer une nouvelle instance de l'automobile
     automobile = Automobile(
