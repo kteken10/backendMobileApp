@@ -4,7 +4,7 @@ from jwt import encode as jwt_encode, decode as jwt_decode
 from os import environ as env
 from models import db, Visiteur, Fournisseur, Automobile
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask, redirect, session, jsonify, url_for, request
+from flask import Flask,  jsonify, request
 from flask_migrate import Migrate
 # from flask_migrate import Migrate
 from flask_cors import CORS
@@ -18,7 +18,7 @@ ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
 
-secret_key = env.get("SECRET_KEY")
+secret_key = "T0pS3cr3tK3y!#"
 app.secret_key = secret_key
 app.config.from_object(config[env_type])
 db.init_app(app)
