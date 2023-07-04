@@ -18,8 +18,8 @@ ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
 
-secret = env.get("SECRET_KEY")
-app.secret_key = secret
+secret_key = env.get("SECRET_KEY")
+app.secret_key = secret_key
 app.config.from_object(config[env_type])
 db.init_app(app)
 
@@ -86,7 +86,7 @@ def get_visiteur(visiteur_id):
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt_decode(token, secret, algorithms=['HS256'])
+        decoded_token = jwt_decode(token, secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
 
         visiteur = Visiteur.query.get(visiteur_id)
@@ -170,7 +170,7 @@ def get_fournisseurs():
         return jsonify({'message': 'Token missing'}), 401
 
     try:
-        decoded_token = jwt.decode(token, secret, algorithms=['HS256'])
+        decoded_token = jwt.decode(token, secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
 
         fournisseurs = Fournisseur.query.all()
