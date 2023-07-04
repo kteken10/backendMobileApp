@@ -247,7 +247,7 @@ def create_automobile():
         date_enregistrement=datetime.utcnow(),
         fournisseur_id=data['fournisseur_id'],
         description=data['description'],
-        image=data['image']
+        image= data['image']
     )
 
     # Enregistrer l'automobile dans la base de données
@@ -319,6 +319,7 @@ def get_automobile(automobile_id):
         return jsonify({'message': 'Automobile non trouvée'})
     
 #Compter le nombre de voiture d'un fournisseur     
+
 @app.route("/fournisseurs/<int:user_id>/vehicle-count", methods=["GET"])
 def get_vehicle_count(user_id):
     fournisseur = Fournisseur.query.get(user_id)
