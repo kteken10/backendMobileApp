@@ -6,7 +6,6 @@ from models import db, Visiteur, Fournisseur, Automobile
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask,  jsonify, request
 from flask_migrate import Migrate
-# from flask_migrate import Migrate
 from flask_cors import CORS
 
 from config import config
