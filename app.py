@@ -163,7 +163,6 @@ def create_fournisseur():
     db.session.add(fournisseur)
     db.session.commit()
     return jsonify({'message': 'Fournisseur created successfully'})
-
 @app.route('/fournisseurs', methods=['GET'])
 def get_fournisseurs():
     token = request.headers.get('Authorization')
@@ -191,34 +190,7 @@ def get_fournisseurs():
 
     except jwt.InvalidTokenError:
         return jsonify({'message': 'Invalid token'}), 401
-@app.route('/fournisseurs/<int:fournisseur_id>', methods=['GET'])
-def get_fournisseur(fournisseur_id):
-    token = request.headers.get('Authorization')
-    if not token:
-        return jsonify({'message': 'Token missing'}), 401
 
-    try:
-        decoded_token = jwt_decode(token, secret_key, algorithms=['HS256'])
-        user_id = decoded_token['user_id']
-
-        fournisseur = Fournisseur.query.get(fournisseur_id)
-        if fournisseur:
-            result = {
-                'id': fournisseur.id,
-                'nom': fournisseur.nom,
-                'email': fournisseur.email,
-                'numero_telephone': fournisseur.numero_telephone,
-                'photo_profil': fournisseur.photo_profil,
-                'password': fournisseur.password,
-                'date_enregistrement': fournisseur.date_enregistrement.isoformat()
-            }
-            return jsonify(result)
-        else:
-            return jsonify({'message': 'Fournisseur non trouvé'})
-
-    except jwt.InvalidTokenError as e:
-             print('Invalid token:', str(e))
-    return jsonify({'message': 'Invalid token'}), 401
 
 
 @app.route('/fournisseurs', methods=['DELETE'])
