@@ -419,6 +419,7 @@ def get_duration(date_enregistrement):
     duration = f"{delta.days} jours, {delta.seconds // 3600} heures, {(delta.seconds // 60) % 60} minutes"
     return duration
 if __name__ == "__main__":
-    # app.run()
-    app.run(host='0.0.0.0')
+    app.run()
+    # app.run(host='0.0.0.0')
+    # app.run(port=int(os.environ.get('PORT', 5000)))
 
