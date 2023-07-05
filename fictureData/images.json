@@ -1,0 +1,19 @@
+[
+    {
+      "automobile_id": 1,
+      "image": "image1.jpg"
+    },
+    {
+      "automobile_id": 1,
+      "image": "image2.jpg"
+    },
+    {
+      "automobile_id": 2,
+      "image": "image3.jpg"
+    },
+    {
+      "automobile_id": 3,
+      "image": "image4.jpg"
+    }
+  ]
+  

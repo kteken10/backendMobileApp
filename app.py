@@ -2,9 +2,11 @@ import os
 import jwt
 from jwt import encode as jwt_encode, decode as jwt_decode
 from os import environ as env
-from models import db, Visiteur, Fournisseur, Automobile
+from models import db, Visiteur, Fournisseur, Automobile,ImageAutomobile
 from dotenv import find_dotenv, load_dotenv
+from werkzeug.utils import secure_filename
 from flask import Flask,  jsonify, request
+from flask import send_file
 from flask_migrate import Migrate
 from flask_cors import CORS
 
@@ -16,6 +18,9 @@ env_type = 'production'
 ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
+# Définir le répertoire de stockage des images
+UPLOAD_FOLDER = 'chemin/vers/le/dossier/de/stockage'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 secret_key = "T0pS3cr3tK3y!#"
 app.secret_key = secret_key
@@ -318,7 +323,62 @@ def delete_vehicle(vehicle_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Route pour télécharger une image
+@app.route('/images', methods=['POST'])
+def upload_image():
+    # Vérifier si le fichier a été inclus dans la requête
+    if 'image' not in request.files:
+        return jsonify({'message': 'No file part'}), 400
 
+    file = request.files['image']
+
+    # Vérifier si un fichier a été sélectionné
+    if file.filename == '':
+        return jsonify({'message': 'No selected file'}), 400
+
+    # Vérifier si l'extension du fichier est autorisée
+    if not allowed_file(file.filename):
+        return jsonify({'message': 'Invalid file extension'}), 400
+
+    try:
+        if file.filename is not None:
+            # Générer un nom de fichier sécurisé
+            filename = secure_filename(file.filename)
+
+            # Enregistrer le fichier dans le répertoire de stockage
+            file.save(os.path.join(UPLOAD_FOLDER, filename))
+
+            return jsonify({'message': 'File uploaded successfully'})
+        else:
+            return jsonify({'message': 'Invalid file name'}), 400
+    except Exception as e:
+        return jsonify({'message': 'Error uploading file', 'error': str(e)}), 500
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+# Route pour récupérer une image
+@app.route('/images/<filename>', methods=['GET'])
+def get_image(filename):
+    # Vérifier si le fichier existe
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    if not os.path.isfile(filepath):
+        return jsonify({'message': 'Image not found'}), 404
+
+    # Renvoyer le fichier en tant que réponse
+    return send_file(filepath, mimetype='image/jpeg')
+
+# Route pour supprimer une image
+@app.route('/images/<filename>', methods=['DELETE'])
+def delete_image(filename):
+    # Vérifier si le fichier existe
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    if not os.path.isfile(filepath):
+        return jsonify({'message': 'Image not found'}), 404
+
+    # Supprimer le fichier
+    os.remove(filepath)
+
+    return jsonify({'message': 'Image deleted successfully'})
 
 # Récupérer un véhicule connaissant l'id de son fournisseur 
 @app.route('/fournisseurs/<int:fournisseur_id>/vehicles', methods=['GET'])
