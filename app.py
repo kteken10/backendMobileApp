@@ -36,7 +36,7 @@ CORS(app)  # Pour autoriser les requêtes CORS
 
 @app.route('/')
 def index():
-    return "Je suis une Application Flask "
+    return "Votre Application est deployé et fonctionne correctement"
 
 # Routes pour les visiteurs
 @app.route('/visiteurs', methods=['POST'])
