@@ -9,7 +9,7 @@ from flask import Flask,  jsonify, request
 from flask import send_file
 from flask_migrate import Migrate
 from flask_cors import CORS
-
+from sqlalchemy.exc import IntegrityError
 from config import config
 from datetime import datetime, timedelta
 
@@ -38,20 +38,31 @@ CORS(app)  # Pour autoriser les requêtes CORS
 def index():
     return "Votre Application est deployé et fonctionne correctement"
 
-# Routes pour les visiteurs
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import IntegrityError
+
 @app.route('/visiteurs', methods=['POST'])
 def create_visiteur():
     data = request.get_json()
-    visiteur = Visiteur(
-        nom=data['nom'],
-        email=data['email'],
-        numero_telephone=data['numero_telephone'],
-        password=data['password'],
-        date_enregistrement=datetime.utcnow(),
-    )
-    db.session.add(visiteur)
-    db.session.commit()
-    return jsonify({'message': 'Visiteur created successfully'})
+    
+    try:
+        visiteur = Visiteur(
+            nom=data['nom'],
+            email=data['email'],
+            numero_telephone=data['numero_telephone'],
+            password=data['password'],
+            date_enregistrement=datetime.utcnow(),
+        )
+        db.session.add(visiteur)
+        db.session.commit()
+        return jsonify({'message': 'Visiteur created successfully'})
+    
+    except IntegrityError as e:
+        db.session.rollback()
+        error_message = str(e.orig)
+        return jsonify({'message': error_message}), 400
+
+
 
 @app.route('/visiteurs', methods=['GET'])
 def get_visiteurs():
