@@ -39,7 +39,6 @@ def index():
     return "Votre Application est deployé et fonctionne correctement"
 
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.exc import IntegrityError
 
 @app.route('/visiteurs', methods=['POST'])
 def create_visiteur():
@@ -57,11 +56,9 @@ def create_visiteur():
         db.session.commit()
         return jsonify({'message': 'Visiteur created successfully'})
     
-    except IntegrityError as e:
+    except IntegrityError:
         db.session.rollback()
-        error_message = str(e.orig)
-        return jsonify({'message': error_message}), 400
-
+        return jsonify({'message': 'Email already exists'}), 400
 
 
 @app.route('/visiteurs', methods=['GET'])
